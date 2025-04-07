@@ -1,10 +1,24 @@
 #Beginning
+import random
+import secrets
 import string
 
 
 
-letters = string.ascii_letters #these are the letters abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
-digits = string.digits #these are the digits 0123456789
-symbols = string.punctuation # these are the symbols !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+def generate_password():
+    #Define the possible characters for the password
+    letters = string.ascii_letters #these are the letters abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+    digits = string.digits #these are the digits 0123456789
+    symbols = string.punctuation # these are the symbols !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
 
-print(letters)
+
+    #Combine all characters
+    all_characters = letters + digits + symbols
+
+
+    # print(all_characters)
+    # print(secrets.choice(all_characters))
+    
+
+
+
