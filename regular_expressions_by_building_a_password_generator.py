@@ -28,7 +28,7 @@ def generate_password(length, nums, special_chars, uppercase, lowercase):
         for _ in range(length):
             password += secrets.choice(all_characters)
         
-        constraints = [(nums, '')]
+        constraints = [(nums, '[0123456789]')]
     
     return password
 
@@ -41,7 +41,7 @@ def generate_password(length, nums, special_chars, uppercase, lowercase):
 # quote = 'Not all those who wander are lost.'
 # print(re.search(pattern, quote))
 
-pattern = 'l+'
+pattern = 't[a-z]'
 quote = 'Not all those who wander are lost.'
 print(re.findall(pattern, quote)) #findall to check if the generated password meets the required features
 
