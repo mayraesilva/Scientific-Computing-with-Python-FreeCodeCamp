@@ -32,9 +32,20 @@ def generate_password(length, nums, special_chars, uppercase, lowercase):
     
     return password
 
-pattern = re.compile('l+') 
+# pattern = re.compile('l+') 
+# quote = 'Not all those who wander are lost.'
+# print(pattern.search(quote)) #search for the character that matches in compile
+
+# #Another ways is:
+# pattern = 'l+'
+# quote = 'Not all those who wander are lost.'
+# print(re.search(pattern, quote))
+
+pattern = 'l+'
 quote = 'Not all those who wander are lost.'
-print(pattern.search(quote)) #search for the character that matches in compile
+print(re.findall(pattern, quote)) #findall to check if the generated password meets the required features
+
+
 
 # new_password = generate_password(8)
 # print(new_password)
