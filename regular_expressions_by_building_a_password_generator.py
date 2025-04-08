@@ -28,10 +28,14 @@ def generate_password(length, nums, special_chars, uppercase, lowercase):
         for _ in range(length):
             password += secrets.choice(all_characters)
         
-        constraints = [(nums, r'[0-9]'), 
+        constraints = [(nums, r'\d'), #replace [0-9] with \d (same effect)
                        (lowercase, r'[a-z]')
                        (uppercase, r'[A-Z]'),
-                       (special_chars, r'')]
+                       (special_chars,  r'\W')] #Replace the [^a-zA-Z0-9] character class with \W
+        
+          # Check constraints
+        for constraint, pattern in constraints:
+            pass
     
     return password
 
