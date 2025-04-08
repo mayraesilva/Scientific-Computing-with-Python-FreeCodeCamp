@@ -1,11 +1,13 @@
-#Beginning
-import random
+#Beginning the password generator
+
+#import random #We were going to use it, but it becomes predictible, not so goo for a passcode
+import re
 import secrets
 import string
 
 
 
-def generate_password(length):
+def generate_password(length, nums, special_chars, uppercase, lowercase):
     #Define the possible characters for the password
     letters = string.ascii_letters #these are the letters abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
     digits = string.digits #these are the digits 0123456789
@@ -18,17 +20,23 @@ def generate_password(length):
     # print(all_characters)
     # print(secrets.choice(all_characters))
 
-    password = ''
+    while True:
 
-    #Generate password
-    for _ in range(length):
-        password += secrets.choice(all_characters)
+        password = ''
+
+        #Generate password
+        for _ in range(length):
+            password += secrets.choice(all_characters)
+        
+        constraints = [(nums, '')]
     
     return password
 
+pattern = re.compile('i')
 
-new_password = generate_password(8)
-print(new_password)
+
+# new_password = generate_password(8)
+# print(new_password)
 
     
 
