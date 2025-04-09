@@ -1,4 +1,4 @@
-#Beginning the password generator
+#Beginning the password generator by Mayra Silva
 
 #import random #We were going to use it, but it becomes predictible, not so goo for a passcode
 import re
@@ -17,9 +17,7 @@ def generate_password(length=16, nums=1, special_chars=1, uppercase=1, lowercase
     #Combine all characters
     all_characters = letters + digits + symbols
 
-    # print(all_characters)
-    # print(secrets.choice(all_characters))
-
+    
     while True:
 
         password = ''
@@ -48,22 +46,6 @@ def generate_password(length=16, nums=1, special_chars=1, uppercase=1, lowercase
 if __name__ == '__main__':
     new_password = generate_password()
     print('Generated password:', new_password)
-
-# pattern = re.compile('l+') 
-# quote = 'Not all those who wander are lost.'
-# print(pattern.search(quote)) #search for the character that matches in compile
-
-# #Another ways is:
-# pattern = 'l+'
-# quote = 'Not all those who wander are lost.'
-# print(re.search(pattern, quote))
-
-
-# pattern = 't[a-z]' # t e depois a-z
-# # pattern = '[a-z]t' # a-z e depois t
-# quote = 'Not all those who wander are lost.'
-# print(re.findall(pattern, quote)) #findall to check if the generated password meets the required features
-
 
 
 
