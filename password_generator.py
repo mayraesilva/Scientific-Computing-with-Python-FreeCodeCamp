@@ -34,9 +34,16 @@ def generate_password(length, nums, special_chars, uppercase, lowercase):
                        (special_chars,  r'\W')] #Replace the [^a-zA-Z0-9] character class with \W
         
           # Check constraints
+
+        count = 0
+
         for constraint, pattern in constraints:
-            pass
-    
+            if constraint <= len(re.findall(pattern, password)): #You are interested in the number of elements in the list returned by the findall() function.
+                count += 1
+        
+        if count == 4:
+            break
+
     return password
 
 # pattern = re.compile('l+') 
@@ -48,10 +55,11 @@ def generate_password(length, nums, special_chars, uppercase, lowercase):
 # quote = 'Not all those who wander are lost.'
 # print(re.search(pattern, quote))
 
-pattern = 't[a-z]' # t e depois a-z
-# pattern = '[a-z]t' # a-z e depois t
-quote = 'Not all those who wander are lost.'
-print(re.findall(pattern, quote)) #findall to check if the generated password meets the required features
+
+# pattern = 't[a-z]' # t e depois a-z
+# # pattern = '[a-z]t' # a-z e depois t
+# quote = 'Not all those who wander are lost.'
+# print(re.findall(pattern, quote)) #findall to check if the generated password meets the required features
 
 
 
