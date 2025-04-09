@@ -37,11 +37,8 @@ def generate_password(length, nums, special_chars, uppercase, lowercase):
 
         count = 0
 
-        for constraint, pattern in constraints:
-            if constraint <= len(re.findall(pattern, password)): #You are interested in the number of elements in the list returned by the findall() function.
-                count += 1
         
-        if count == 4:
+        if all([]):
             break
 
     return password
