@@ -7,7 +7,7 @@ import string
 
 
 
-def generate_password(length, nums, special_chars, uppercase, lowercase):
+def generate_password(length=16, nums=1, special_chars=1, uppercase=1, lowercase=1): #default parameters
     #Define the possible characters for the password
     letters = string.ascii_letters #these are the letters abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
     digits = string.digits #these are the digits 0123456789
@@ -44,7 +44,8 @@ def generate_password(length, nums, special_chars, uppercase, lowercase):
 
     return password
 
-new_password = generate_password(8, 1, 1, 1, 1)
+
+new_password = generate_password(length= 8, nums=1, special_chars=1, uppercase=1, lowercase=1)
 print(new_password)
 
 # pattern = re.compile('l+') 
