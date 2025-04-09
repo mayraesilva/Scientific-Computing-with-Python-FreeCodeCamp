@@ -35,13 +35,16 @@ def generate_password(length, nums, special_chars, uppercase, lowercase):
         
           # Check constraints
 
-        count = 0
+        
 
         
-        if all([]):
+        if all(constraint <= len(re.findall(pattern, password)) for constraint, pattern in constraints): #generator expression can save memory
             break
 
     return password
+
+new_password = generate_password(8, 1, 1, 1, 1)
+print(new_password)
 
 # pattern = re.compile('l+') 
 # quote = 'Not all those who wander are lost.'
@@ -60,8 +63,7 @@ def generate_password(length, nums, special_chars, uppercase, lowercase):
 
 
 
-# new_password = generate_password(8)
-# print(new_password)
+
 
     
 
