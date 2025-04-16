@@ -20,3 +20,6 @@ my_graph = {
     'C': [('B', 4), ('D', 7)],
     'D': [('A', 1), ('C', 7)]
 }
+
+def shortest_path():
+    pass
