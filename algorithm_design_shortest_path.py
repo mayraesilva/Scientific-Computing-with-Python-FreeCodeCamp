@@ -15,6 +15,6 @@
 #     print(i, j)
 
 my_graph = {
-    'A': 'guinea pig',
-    'B': 2
+    'A': 'B',
+    'age': 2
 }
