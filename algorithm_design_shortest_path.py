@@ -67,3 +67,6 @@ shortest_path(my_graph,'A')
 print('second on the way')
 
 shortest_path(another_graph,'A')
+
+print('Going to F from A')
+shortest_path(another_graph,'A', 'F')
