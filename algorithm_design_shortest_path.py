@@ -27,8 +27,11 @@ def shortest_path(graph, start):
     paths = {node : [] for node in graph}
     paths[start].append(start) #add the starting node to its own list
 
+    while len(unvisited) != 0:
+        current = min(unvisited) # to identify the closest, but it goes in alphabetic order
+
     
-    print(f'Unvisited: {unvisited}\nDistances: {distances}')
+    print(f'Unvisited: {unvisited}\nDistances: {distances}\nPaths: {paths}')
 
 
-shortest_path(my_graph,'A')
+#shortest_path(my_graph,'A')
