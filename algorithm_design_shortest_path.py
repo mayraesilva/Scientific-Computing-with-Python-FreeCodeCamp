@@ -7,5 +7,5 @@ copper['species'] = 'Cavia porcellus'
 
 print(copper)
 
-for item in copper.values():
+for item in copper.items():
     print(item)
