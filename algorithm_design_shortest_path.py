@@ -21,7 +21,7 @@ my_graph = {
     'D': [('A', 1), ('C', 7)]
 }
 
-def shortest_path(graph, start):
+def shortest_path(graph, start, target=''):
     unvisited = list(graph)
     distances = {node : 0 if node == start else float('inf') for node in graph}
     paths = {node : [] for node in graph}
@@ -34,7 +34,7 @@ def shortest_path(graph, start):
             if distance + distances[current] < distances[node]:
                 distances[node] = distance + distances[current]
                 if paths[node] and paths[node][-1] == node:
-                    paths[node] = paths[current]
+                    paths[node] = paths[current][:]
                 else:
                     paths[node].extend(paths[current])
                 
