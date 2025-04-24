@@ -22,9 +22,19 @@ def move(n, source, auxiliary, target):
     print(rods)
     for move in range(number_of_moves):
         remainder = (move +1) % 3
+
         if remainder == 1:
             print(f'Move {move + 1} allowed between {source} and {target}')
-        
+
+            forward = False
+            if len(rods[target]) == 0: #Here could also be if not rods[target]:
+                forward = True
+
+        elif remainder == 2:
+            print(f'Move {move + 1} allowed between {source} and {auxiliary}')
+
+         elif remainder == 0:
+            print(f'Move {move + 1} allowed between {auxiliary} and {target}')
     
 
 
