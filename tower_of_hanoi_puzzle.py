@@ -7,7 +7,7 @@ NUMBER_OF_DISKS = 3
 number_of_moves = (2 ** NUMBER_OF_DISKS) - 1
 
 rods = {
-    'A': list(range(NUMBER_OF_DISKS, 0, -1),
+    'A': list(range(NUMBER_OF_DISKS, 0, -1)),
     'B': [],
     'C': []
     }
@@ -16,7 +16,7 @@ rods = {
 # You can move only one disk at a time
 # You cannot place larger disks on top of smaller ones
 
-def make_allowed_move():
+def make_allowed_move(rod1, rod2):
 #rod1 = source and rod2 = target
     forward = False
     if len(rods[rod2]) == 0: #Here could also be if not rods[target]:
@@ -48,11 +48,11 @@ def move(n, source, auxiliary, target):
 
         elif remainder == 2:
             print(f'Move {move + 1} allowed between {source} and {auxiliary}')
-            make_allowed_move(source, target)
+            make_allowed_move(source, auxiliary)
 
-         elif remainder == 0:
+        elif remainder == 0:
             print(f'Move {move + 1} allowed between {auxiliary} and {target}')
-            make_allowed_move(source, target)
+            make_allowed_move(auxiliary, target)
     
 
 
