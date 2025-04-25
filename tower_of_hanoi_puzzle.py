@@ -17,21 +17,22 @@ rods = {
 # You cannot place larger disks on top of smaller ones
 
 def make_allowed_move():
+#rod1 = source and rod2 = target
     forward = False
-    if len(rods[target]) == 0: #Here could also be if not rods[target]:
+    if len(rods[rod2]) == 0: #Here could also be if not rods[target]:
         forward = True
-    elif rods[rod1] and rods[rod1][-1] < rods[target][-1]:
+    elif rods[rod1] and rods[rod1][-1] < rods[rod2][-1]:
         forward = True
             
     if forward == True:
-        print(f'Moving disk {rods[rod1][-1]} from {rod1} to {target}')
+        print(f'Moving disk {rods[rod1][-1]} from {rod1} to {rod2}')
             #after printing the move, we neet to remove from the source
             #and put it on the target
-        rods[target].append(rods[rod1].pop())
+        rods[rod2].append(rods[rod1].pop())
             
     else: #when forward is false we have to move on the opposite direction
-        print(f'Moving disk {rods[target][-1]} from {target} to {rod1}')
-        rods[rod1].append(rods[target].pop())
+        print(f'Moving disk {rods[rod2][-1]} from {rod2} to {rod1}')
+        rods[rod1].append(rods[rod2].pop())
     #display our progress
     print(rods)
 
