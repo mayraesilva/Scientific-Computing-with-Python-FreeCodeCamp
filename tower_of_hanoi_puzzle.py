@@ -17,7 +17,23 @@ rods = {
 # You cannot place larger disks on top of smaller ones
 
 def make_allowed_move():
-    pass
+    forward = False
+    if len(rods[target]) == 0: #Here could also be if not rods[target]:
+        forward = True
+    elif rods[source] and rods[source][-1] < rods[target][-1]:
+        forward = True
+            
+    if forward == True:
+        print(f'Moving disk {rods[source][-1]} from {source} to {target}')
+            #after printing the move, we neet to remove from the source
+            #and put it on the target
+        rods[target].append(rods[source].pop())
+            
+    else: #when forward is false we have to move on the opposite direction
+        print(f'Moving disk {rods[target][-1]} from {target} to {source}')
+        rods[source].append(rods[target].pop())
+    #display our progress
+    #print(rods)
 
 def move(n, source, auxiliary, target):
     #display starting configuration
@@ -28,23 +44,7 @@ def move(n, source, auxiliary, target):
         if remainder == 1:
             print(f'Move {move + 1} allowed between {source} and {target}')
 
-            forward = False
-            if len(rods[target]) == 0: #Here could also be if not rods[target]:
-                forward = True
-            elif rods[source] and rods[source][-1] < rods[target][-1]:
-                forward = True
             
-            if forward == True:
-                print(f'Moving disk {rods[source][-1]} from {source} to {target}')
-                #after printing the move, we neet to remove from the source
-                #and put it on the target
-                rods[target].append(rods[source].pop())
-            
-            else: #when forward is false we have to move on the opposite direction
-                print(f'Moving disk {rods[target][-1]} from {target} to {source}')
-                rods[source].append(rods[target].pop())
-            #display our progress
-            #print(rods)
 
         elif remainder == 2:
             print(f'Move {move + 1} allowed between {source} and {auxiliary}')
