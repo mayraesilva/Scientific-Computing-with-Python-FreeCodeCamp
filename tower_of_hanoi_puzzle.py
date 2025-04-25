@@ -34,11 +34,11 @@ def make_allowed_move(rod1, rod2):
         print(f'Moving disk {rods[rod2][-1]} from {rod2} to {rod1}')
         rods[rod1].append(rods[rod2].pop())
     #display our progress
-    print(rods)
+    print(rods, '\n')
 
 def move(n, source, auxiliary, target):
     #display starting configuration
-    print(rods)
+    print(rods, '\n')
     for move in range(number_of_moves):
         remainder = (move +1) % 3
 
