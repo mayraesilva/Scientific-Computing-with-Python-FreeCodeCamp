@@ -16,6 +16,8 @@ rods = {
 # You can move only one disk at a time
 # You cannot place larger disks on top of smaller ones
 
+def make_allowed_move():
+    pass
 
 def move(n, source, auxiliary, target):
     #display starting configuration
