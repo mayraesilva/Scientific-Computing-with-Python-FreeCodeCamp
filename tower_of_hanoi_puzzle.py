@@ -20,20 +20,20 @@ def make_allowed_move():
     forward = False
     if len(rods[target]) == 0: #Here could also be if not rods[target]:
         forward = True
-    elif rods[source] and rods[source][-1] < rods[target][-1]:
+    elif rods[rod1] and rods[rod1][-1] < rods[target][-1]:
         forward = True
             
     if forward == True:
-        print(f'Moving disk {rods[source][-1]} from {source} to {target}')
+        print(f'Moving disk {rods[rod1][-1]} from {rod1} to {target}')
             #after printing the move, we neet to remove from the source
             #and put it on the target
-        rods[target].append(rods[source].pop())
+        rods[target].append(rods[rod1].pop())
             
     else: #when forward is false we have to move on the opposite direction
-        print(f'Moving disk {rods[target][-1]} from {target} to {source}')
-        rods[source].append(rods[target].pop())
+        print(f'Moving disk {rods[target][-1]} from {target} to {rod1}')
+        rods[rod1].append(rods[target].pop())
     #display our progress
-    #print(rods)
+    print(rods)
 
 def move(n, source, auxiliary, target):
     #display starting configuration
