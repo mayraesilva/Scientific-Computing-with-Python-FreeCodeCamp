@@ -37,6 +37,10 @@ def move(n, source, auxiliary, target):
                 #after printing the move, we neet to remove from the source
                 #and put it on the target
                 rods[target].append(rods[source].pop())
+            
+            else: #when forward is false we have to move on the opposite direction
+                print(f'Moving disk {rods[target][-1]} from {target} to {source}')
+                rods[source].append(rods[target].pop())
 
         elif remainder == 2:
             print(f'Move {move + 1} allowed between {source} and {auxiliary}')
