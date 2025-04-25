@@ -29,6 +29,8 @@ def move(n, source, auxiliary, target):
             forward = False
             if len(rods[target]) == 0: #Here could also be if not rods[target]:
                 forward = True
+            elif rods[source] and rods[source][-1] < rods[target][-1]:
+                forward = True
 
         elif remainder == 2:
             print(f'Move {move + 1} allowed between {source} and {auxiliary}')
