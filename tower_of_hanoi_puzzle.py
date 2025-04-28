@@ -30,7 +30,8 @@ def move(n, source, auxiliary, target):
 
         #display our progress
         print(rods, '\n')
-    
+        move(n - 1, auxiliary, source, target)
+
     
 
 
