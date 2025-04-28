@@ -51,7 +51,8 @@ def move(n, source, auxiliary, target):
                 # make_allowed_move(source, auxiliary)                 
 
         elif remainder == 2:
-            print(f'Move {move + 1} allowed between {source} and {auxiliary}')
+            if n % 2 != 0:
+                print(f'Move {move + 1} allowed between {source} and {auxiliary}')
             make_allowed_move(source, auxiliary)
 
         elif remainder == 0:
