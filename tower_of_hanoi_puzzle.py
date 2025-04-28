@@ -3,14 +3,12 @@
 # The puzzle consists of three rods and 
 # a number of disks of different diameters.
 
-NUMBER_OF_DISKS = 3
+NUMBER_OF_DISKS = 4
 
 
-rods = {
-    'A': list(range(NUMBER_OF_DISKS, 0, -1)),
-    'B': [],
-    'C': []
-    }
+A = list(range(NUMBER_OF_DISKS, 0, -1))
+B = []
+C = []
 
 # You can move only top-most disks
 # You can move only one disk at a time
@@ -26,10 +24,12 @@ def move(n, source, auxiliary, target):
         #we need to remove from one and put it on the other
 
         #move the nth disk from source to target
-        rods[target].append(rods[source].pop())
+        target.append(source.pop())
 
         #display our progress
-        print(rods, '\n')
+        print(A, B, C, '\n')
+
+        # move the n - 1 disks that we left on auxiliary onto target
         move(n - 1, auxiliary, source, target)
 
     
