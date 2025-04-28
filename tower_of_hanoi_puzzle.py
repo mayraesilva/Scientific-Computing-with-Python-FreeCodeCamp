@@ -1,14 +1,12 @@
-#In this project, you will solve the mathematical puzzle 
+# In this project, you will solve the mathematical puzzle 
 # known as the Tower of Hanoi. 
 # The puzzle consists of three rods and 
 # a number of disks of different diameters.
 
 NUMBER_OF_DISKS = 4
-
-
-A = list(range(NUMBER_OF_DISKS, 0, -1))
-B = []
-C = []
+A = list(range(NUMBER_OF_DISKS, 0, -1)) #source
+B = [] #auxiliary
+C = [] #target
 
 # You can move only top-most disks
 # You can move only one disk at a time
@@ -18,7 +16,7 @@ C = []
 def move(n, source, auxiliary, target):
     if n <= 0:
         return
-        #  move n - 1 disks from source to auxiliary, so they are out of the way
+    #  move n - 1 disks from source to auxiliary, so they are out of the way
     move(n-1, source, target, auxiliary)
 
     #as the rods change between source, target and auxiliary
@@ -35,7 +33,5 @@ def move(n, source, auxiliary, target):
 
     
 
-
-
 #initiate call from source A to target C with auxiliary B
-move(NUMBER_OF_DISKS, 'A', 'B', 'C')
+move(NUMBER_OF_DISKS, A, B, C)
