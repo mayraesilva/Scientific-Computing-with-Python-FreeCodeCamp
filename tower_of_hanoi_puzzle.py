@@ -24,6 +24,8 @@ def move(n, source, auxiliary, target):
 
         #as the rods change between source, target and auxiliary
         #we need to remove from one and put it on the other
+        
+        #move the nth disk from source to target
         rods[target].append(rods[source].pop())
 
         #display starting configuration
