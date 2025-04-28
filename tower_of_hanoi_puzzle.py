@@ -20,15 +20,15 @@ rods = {
 def move(n, source, auxiliary, target):
     if n > 0:
         #  move n - 1 disks from source to auxiliary, so they are out of the way
-        move(n-1, source, auxiliary, target)
+        move(n-1, source, target, auxiliary)
 
         #as the rods change between source, target and auxiliary
         #we need to remove from one and put it on the other
-        
+
         #move the nth disk from source to target
         rods[target].append(rods[source].pop())
 
-        #display starting configuration
+        #display our progress
         print(rods, '\n')
     
     
