@@ -16,21 +16,22 @@ C = []
 
 
 def move(n, source, auxiliary, target):
-    if n > 0:
+    if n <= 0:
+        return
         #  move n - 1 disks from source to auxiliary, so they are out of the way
-        move(n-1, source, target, auxiliary)
+    move(n-1, source, target, auxiliary)
 
-        #as the rods change between source, target and auxiliary
-        #we need to remove from one and put it on the other
+    #as the rods change between source, target and auxiliary
+    #we need to remove from one and put it on the other
 
-        #move the nth disk from source to target
-        target.append(source.pop())
+    #move the nth disk from source to target
+    target.append(source.pop())
 
-        #display our progress
-        print(A, B, C, '\n')
+    #display our progress
+    print(A, B, C, '\n')
 
-        # move the n - 1 disks that we left on auxiliary onto target
-        move(n - 1, auxiliary, source, target)
+    # move the n - 1 disks that we left on auxiliary onto target
+    move(n - 1, auxiliary, source, target)
 
     
 
