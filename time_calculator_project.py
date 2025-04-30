@@ -10,10 +10,7 @@ def format_time(time):
 
 
 
-    if len(splitted_time) >= 2:
-        time_of_the_day = splitted_time.pop() #remove the string of part of the day (AM, PM)
-        print(time_of_the_day)
-        print(splitted_time)
+    
         
 
     splitted_time_hours_and_minutes = splitted_time[0].split(separator_hours_minutes) #separate hours and minutes
@@ -26,6 +23,9 @@ def format_time(time):
     
 
     if len(splitted_time) >= 2:
+        time_of_the_day = splitted_time.pop() #remove the string of part of the day (AM, PM)
+        print(time_of_the_day)
+        print(splitted_time)
         splitted_time_hours_and_minutes = splitted_time_hours_and_minutes + [time_of_the_day]
     
     print(splitted_time_hours_and_minutes)
@@ -43,21 +43,22 @@ def calculate_time_passed(moment_of_start, time_of_duration):
         }
     
 
-
     start_hours = int(moment_of_start[0])
     start_minutes = int(moment_of_start[1])
-    #part_of_the_day = moment_of_start[2]
+    part_of_the_day = moment_of_start[2]
 
     hours_passed = int(time_of_duration[0])
     minutes_passed = int(time_of_duration[1])
 
     print('Begin test')
     print(start_hours)
-    #print(part_of_the_day)
+    print(part_of_the_day)
     print(start_minutes)
     print('Now duration')
     print(hours_passed)
     print(minutes_passed)
+
+
 
     
 
