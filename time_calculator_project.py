@@ -36,7 +36,9 @@ def format_time(time):
 
 format_time('3:00 PM')
 
-def calculate_time_passed(moment_of_start, time_of_duration):
+def calculate_time_passed(moment_of_start, time_of_duration, day_of_week=None):
+    days_of_the_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
     time_of_day = ['AM', 'PM']
     pm_time = {
         12 : 12, 1 : 13, 2 : 14, 3 : 15, 4 : 16, 5 : 17, 6 : 18, 7 : 19, 8 : 20, 9 : 21, 10 : 22, 11 : 23,
@@ -63,13 +65,32 @@ def calculate_time_passed(moment_of_start, time_of_duration):
         new_time_minutes = start_minutes + minutes_passed
         new_time_hour = start_hours + hours_passed
         minutes_remain = 0
+        print(new_time_hour, 'and', new_time_minutes)
 
         if new_time_minutes >= 60:
+
             hours_to_add = new_time_minutes // 60
             minutes_remain = new_time_minutes % 60
             new_time_hour += hours_to_add
+            print(new_time_hour, 'and', minutes_remain)
 
-        if new_time_hour
+
+        if new_time_hour > 24:
+
+            days_passed = new_time_hour // 24
+            hour_of_new_day = new_time_hour % 24
+
+            if hour_of_new_day == 0:
+                hour_of_new_day = 12 #12 AM
+                print(hour_of_new_day)
+            
+            elif 1 <= hour_of_new_day <= 23 :
+                hour_model = pm_time[hour_of_new_day]
+                print(hour_model)
+
+
+
+
 
         
 
@@ -95,4 +116,4 @@ def add_time(start, duration, day_of_week=None):
     pass
 
 
-add_time('3:00 PM', '6:10', 'Sunday')
+add_time('3:55 AM', '36:10', 'Sunday')
