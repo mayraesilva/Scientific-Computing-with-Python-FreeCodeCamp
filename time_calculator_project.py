@@ -58,6 +58,22 @@ def calculate_time_passed(moment_of_start, time_of_duration):
     print(hours_passed)
     print(minutes_passed)
 
+    if part_of_the_day == 'AM':
+
+        new_time_minutes = start_minutes + minutes_passed
+        new_time_hour = start_hours + hours_passed
+        minutes_remain = 0
+
+        if new_time_minutes >= 60:
+            hours_to_add = new_time_minutes // 60
+            minutes_remain = new_time_minutes % 60
+            new_time_hour += hours_to_add
+
+        if new_time_hour
+
+        
+
+
 
 
     
