@@ -6,11 +6,11 @@ def format_time(time):
     
 
     splitted_time = time.split() #use space as separator
-    print(splitted_time)
+    #print(splitted_time)
   
 
     splitted_time_hours_and_minutes = splitted_time[0].split(separator_hours_minutes) #separate hours and minutes
-    print(splitted_time_hours_and_minutes)
+    #print(splitted_time_hours_and_minutes)
     hours = splitted_time_hours_and_minutes[0]
     minutes = splitted_time_hours_and_minutes[1]
 
@@ -20,11 +20,11 @@ def format_time(time):
 
     if len(splitted_time) >= 2:
         time_of_the_day = splitted_time.pop() #remove the string of part of the day (AM, PM)
-        print(time_of_the_day)
-        print(splitted_time)
+        # print(time_of_the_day)
+        # print(splitted_time)
         splitted_time_hours_and_minutes = splitted_time_hours_and_minutes + [time_of_the_day]
     
-    print(splitted_time_hours_and_minutes)
+    #print(splitted_time_hours_and_minutes)
 
 
     return splitted_time_hours_and_minutes
@@ -118,8 +118,10 @@ def add_time(start, duration, day_of_week=None):
 
     tempo = calculate_time_passed(moment_of_start, time_of_duration, day_of_week)
 
+    return tempo
 
-    pass
+
+    
 
 
-add_time('12:00 PM', '360:00', 'Saturday')
+add_time('12:00 PM', '12:00', 'Saturday')
