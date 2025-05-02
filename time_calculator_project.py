@@ -90,9 +90,11 @@ def calculate_time_passed(moment_of_start, time_of_duration, day_of_week=None):
                 hour_of_new_day = 12 #12 AM
                 print(hour_of_new_day)
             
-            elif 1 <= hour_of_new_day <= 23 :
+            elif 12 <= hour_of_new_day <= 23 :
                 hour_model = pm_time[hour_of_new_day]
                 print(hour_model)
+            
+
 
 
 
