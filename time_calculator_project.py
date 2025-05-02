@@ -40,10 +40,6 @@ def calculate_time_passed(moment_of_start, time_of_duration, day_of_week=None):
     days_of_the_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
     time_of_day = ['AM', 'PM']
-    #pm_time = {
-    #12: 12, 1: 13, 2: 14, 3: 15, 4: 16, 5: 17, 6: 18, 
-    #7: 19, 8: 20, 9: 21, 10: 22, 11: 23,
-    #}
     
     pm_time = { 12: 12, 13: 1, 14: 2, 15: 3, 16: 4, 17: 5, 18: 6, 
    19: 7, 20: 8, 21: 9, 22: 10, 23: 11}
@@ -93,6 +89,13 @@ def calculate_time_passed(moment_of_start, time_of_duration, day_of_week=None):
             elif 12 <= hour_of_new_day <= 23 :
                 hour_model = pm_time[hour_of_new_day]
                 print(hour_model)
+
+
+            for day in days_of_the_week:
+                if day == day_of_week:
+                    print(f'We begin this count on {day_of_week}, now its passed {days_passed} day(s)')
+
+
             
 
 
@@ -118,7 +121,7 @@ def add_time(start, duration, day_of_week=None):
     print('Aqui Ó ', moment_of_start)
     time_of_duration = format_time(duration)
 
-    tempo = calculate_time_passed(moment_of_start, time_of_duration)
+    tempo = calculate_time_passed(moment_of_start, time_of_duration, day_of_week)
 
 
     pass
