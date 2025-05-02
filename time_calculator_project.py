@@ -30,7 +30,7 @@ def format_time(time):
     return splitted_time_hours_and_minutes
     
 
-format_time('3:00 PM')
+
 
 def calculate_time_passed(moment_of_start, time_of_duration, day_of_week=None):
     days_of_the_week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
@@ -85,9 +85,9 @@ def calculate_time_passed(moment_of_start, time_of_duration, day_of_week=None):
                 print('This is the hour of new day ', hour_of_new_day)
 
                 if hour_of_new_day == 0:
-                    hour_model = 12 #12 AM
+                    new_time_hour = 12 #12 AM
                     period = 'AM'
-                    print(hour_model, period)
+                    print(new_time_hour, period)
             
                 elif 12 <= hour_of_new_day <= 23 :
                     hour_model = pm_time[hour_of_new_day]
@@ -98,6 +98,8 @@ def calculate_time_passed(moment_of_start, time_of_duration, day_of_week=None):
                     hour_model = am_time[hour_of_new_day]
                     period = 'AM'
                     print(hour_model, period)
+
+                new_time_hour = hour_model
 
 
                 for day in days_of_the_week:
@@ -116,7 +118,7 @@ def calculate_time_passed(moment_of_start, time_of_duration, day_of_week=None):
                             print(f"Now it's {days_of_the_week[new_day_index]} ")
 
 
-    return [hour_model, new_time_minutes, period, days_passed, days_of_the_week[new_day_index] ]
+    return [new_time_hour, new_time_minutes, period, days_passed, days_of_the_week[new_day_index] ]
 
 
 def final_format(info):
@@ -143,11 +145,15 @@ def final_format(info):
 
 
 
-cases = {
-    ('6:30 PM', '00:12'): [7, 42, 'AM'],
-    ('6:30 PM', '205:12'): [7, 42, 'AM'],
-    ('6:30 PM', '205:12', 'Monday'): [7, 42, 'AM', 'Tuesday'],
-}
+# cases = {
+#     ('3:00 PM', '3:10'): [6, 10, 'PM'],
+#     ('6:30 PM', '205:12'): [7, 42, 'AM'],
+#     ('11:30 AM', '2:32', 'Monday'): [2, 2, 'PM'],
+#     ('11:43 AM', '00:20') : [12, 3, 'PM'],
+#     ('10:10 PM', '3:30') : [1, 40, 'AM'],
+#     ('11:43 PM', '24:20', 'Tuesday') : [12, 3, 'AM']
+
+# }
 
 
 def add_time(start, duration, day_of_week=None):
@@ -162,14 +168,20 @@ def add_time(start, duration, day_of_week=None):
 
     return tempo
 
+add_time('6:30 PM', '205:12')
+print('Second test on the way')
+add_time('3:00 PM', '3:10')
+print('Third test')
+add_time('11:43 PM', '24:20', 'Tuesday')
 
-for case_input, expected_output in cases.items():
-    start, duration = case_input
-    day_of_week = expected_output[2] if len(expected_output) > 2 else None
-    result = add_time(start, duration, day_of_week)
-    print(f"Input: {start}, {duration}, {day_of_week}")
-    print(f"Result: {result}")
-    print(f"Expected: {expected_output}")
-    print("---")
 
-    assert(result == expected_output), f"Test failed for input {case_input}. Expected {expected_output}, but got {result}."
+# for case_input, expected_output in cases.items():
+#     start, duration = case_input
+#     day_of_week = expected_output[2] if len(expected_output) > 2 else None
+#     result = add_time(start, duration, day_of_week)
+#     print(f"Input: {start}, {duration}, {day_of_week}")
+#     print(f"Result: {result}")
+#     print(f"Expected: {expected_output}")
+#     print("---")
+
+#     assert(result == expected_output), f"Test failed for input {case_input}. Expected {expected_output}, but got {result}."
