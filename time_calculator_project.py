@@ -37,7 +37,7 @@ def format_time(time):
 format_time('3:00 PM')
 
 def calculate_time_passed(moment_of_start, time_of_duration, day_of_week=None):
-    days_of_the_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    days_of_the_week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
     time_of_day = ['AM', 'PM']
     
@@ -92,8 +92,22 @@ def calculate_time_passed(moment_of_start, time_of_duration, day_of_week=None):
 
 
             for day in days_of_the_week:
+
                 if day == day_of_week:
+
                     print(f'We begin this count on {day_of_week}, now its passed {days_passed} day(s)')
+                    new_day_index = days_of_the_week.index(day_of_week) + days_passed
+
+                    if 0 <= new_day_index < 7:
+                        print(f"Now it's {days_of_the_week[new_day_index]} ")
+
+                    elif new_day_index >= 7:
+                        while new_day_index >= 7:
+                            new_day_index = new_day_index - 7
+                        print(f"Now it's {days_of_the_week[new_day_index]} ")
+
+
+
 
 
             
@@ -127,4 +141,4 @@ def add_time(start, duration, day_of_week=None):
     pass
 
 
-add_time('3:55 AM', '36:10', 'Sunday')
+add_time('3:55 AM', '300:10', 'Saturday')
