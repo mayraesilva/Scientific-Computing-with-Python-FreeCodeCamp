@@ -40,9 +40,14 @@ def calculate_time_passed(moment_of_start, time_of_duration, day_of_week=None):
     days_of_the_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
     time_of_day = ['AM', 'PM']
-    pm_time = {
-        12 : 12, 1 : 13, 2 : 14, 3 : 15, 4 : 16, 5 : 17, 6 : 18, 7 : 19, 8 : 20, 9 : 21, 10 : 22, 11 : 23,
-        }
+    #pm_time = {
+    #12: 12, 1: 13, 2: 14, 3: 15, 4: 16, 5: 17, 6: 18, 
+    #7: 19, 8: 20, 9: 21, 10: 22, 11: 23,
+    #}
+    
+    pm_time = { 12: 12, 13: 1, 14: 2, 15: 3, 16: 4, 17: 5, 18: 6, 
+   19: 7, 20: 8, 21: 9, 22: 10, 23: 11}
+
     
 
     start_hours = int(moment_of_start[0])
@@ -79,6 +84,7 @@ def calculate_time_passed(moment_of_start, time_of_duration, day_of_week=None):
 
             days_passed = new_time_hour // 24
             hour_of_new_day = new_time_hour % 24
+            print('This is the hour of new day ', hour_of_new_day)
 
             if hour_of_new_day == 0:
                 hour_of_new_day = 12 #12 AM
