@@ -72,6 +72,63 @@ def convert_time_24(time_am_or_pm):
 
 
 
+def convert_time_am_or_pm(time_24hrs_format):
+
+    hour = time_24hrs_format[0]
+    minutes = time_24hrs_format[1]
+
+
+    pm_time_to_am = {12: 12, 13: 1, 14: 2, 15: 3, 16: 4, 17: 5, 18: 6, 
+   19: 7, 20: 8, 21: 9, 22: 10, 23: 11}
+    
+    time_converted_am_or_pm = []
+
+
+    if hour <= 11:
+
+        if hour == 0:
+
+            hour = 12
+
+            time_converted_am_or_pm.append(hour)
+            time_converted_am_or_pm.append(minutes)
+            time_converted_am_or_pm.append('AM')
+
+        else:
+            time_converted_am_or_pm.append(hour)
+            time_converted_am_or_pm.append(minutes)
+            time_converted_am_or_pm.append('AM')
+
+    elif hour >= 12:
+        if hour in pm_time_to_am.keys():
+
+            hour = pm_time_to_am[hour]
+
+            time_converted_am_or_pm.append(hour)
+            time_converted_am_or_pm.append(minutes)
+            time_converted_am_or_pm.append('PM')
+
+
+    return(time_converted_am_or_pm)
+
+
+
+    
+
+
+
+
+
+
+
 
 print(convert_time_24(format_time('6:00 AM')))
 print(convert_time_24(format_time('3:00 PM')))
+
+
+hour_in_24_am = [0, 30]
+hour_in_24_pm = [18, 45]
+
+print('teste 1 ',convert_time_am_or_pm(hour_in_24_pm) )
+convert_time_am_or_pm(hour_in_24_pm)
+print('teste 2 ', convert_time_am_or_pm(hour_in_24_am))
