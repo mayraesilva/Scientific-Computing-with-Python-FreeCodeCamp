@@ -71,7 +71,7 @@ def convert_time_24(time_am_or_pm):
 
 
 
-
+#Receives a list with time in 24hrs format and transforme it into am/pm  (list)
 def convert_time_am_or_pm(time_24hrs_format):
 
     hour = time_24hrs_format[0]
