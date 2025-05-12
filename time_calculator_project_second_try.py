@@ -112,6 +112,45 @@ def convert_time_am_or_pm(time_24hrs_format):
     return(time_converted_am_or_pm)
 
 
+def calculate_time_passed(start, duration):
+
+    hour_started = start[0]
+    minutes_started = start[1]
+    hours_passed = duration[0]
+    minutes_passed = duration[1]
+
+    
+    days_passed = 0
+    new_hour = []
+
+
+    total_hour = hour_started + hours_passed
+    total_minutes = minutes_started + minutes_passed
+
+    if total_minutes >= 60:
+
+        hours_to_add =  total_minutes // 60
+        total_minutes = total_minutes % 60
+        total_hour = total_hour + hours_to_add
+
+
+    if total_hour >=24:
+
+        days_passed = total_hour // 24
+        total_hour = total_hour % 24
+
+
+
+    new_hour.append(total_hour)
+    new_hour.append(total_minutes)
+
+    if days_passed > 0:
+        new_hour.append(days_passed)
+
+    return new_hour
+
+
+
 
     
 
@@ -119,15 +158,13 @@ def convert_time_am_or_pm(time_24hrs_format):
 
 
 
-
-
-
-print(convert_time_24(format_time('6:00 AM')))
-print(convert_time_24(format_time('3:00 PM')))
-
+#Test zone
 
 hour_in_24_am = [0, 30]
 hour_in_24_pm = [18, 45]
+
+print(convert_time_24(format_time('6:00 AM')))
+print(convert_time_24(format_time('3:00 PM')))
 
 print('teste 1 ',convert_time_am_or_pm(hour_in_24_pm) )
 convert_time_am_or_pm(hour_in_24_pm)
