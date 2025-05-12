@@ -265,13 +265,16 @@ def add_time(start, duration, day_of_start=None):
             
         if len(minutes) <= 1:
             minutes = '0' + minutes
-
-
-        new_time = f'{hour}:{minutes} {part_of_day} ({days_passed} later)'
+            
+        if days_passed == 1:
+            new_time = f'{hour}:{minutes} {part_of_day} (next day)'
+        
+        else:
+            new_time = f'{hour}:{minutes} {part_of_day} ({days_passed} days later)'
 
         if day_of_start != None:
             new_day = day_of_week(day_of_start, days_passed)
-            new_time = f'{hour}:{minutes} {part_of_day}, {new_day} ({days_passed} later)'
+            new_time = f'{hour}:{minutes} {part_of_day}, {new_day} ({days_passed} days later)'
 
         
         return new_time
@@ -321,20 +324,20 @@ def add_time(start, duration, day_of_start=None):
 
 
 
-add_time('3:00 PM', '3:10')
-# Returns: 6:10 PM
+print(add_time('3:00 PM', '3:10'))
+# ⇒ 6:10 PM
 
-add_time('11:30 AM', '2:32', 'Monday')
-# Returns: 2:02 PM, Monday
+print(add_time('11:30 AM', '2:32', 'Monday'))
+# ⇒ 2:02 PM, Monday
 
-add_time('11:43 AM', '00:20')
-# Returns: 12:03 PM
+print(add_time('11:43 AM', '00:20'))
+# ⇒ 12:03 PM
 
-add_time('10:10 PM', '3:30')
-# Returns: 1:40 AM (next day)
+print(add_time('10:10 PM', '3:30'))
+# ⇒ 1:40 AM (next day)
 
-add_time('11:43 PM', '24:20', 'tueSday')
-# Returns: 12:03 AM, Thursday (2 days later)
+print(add_time('11:43 PM', '24:20', 'tueSday'))
+# ⇒ 12:03 AM, Thursday (2 days later)
 
-add_time('6:30 PM', '205:12')
-# Returns: 7:42 AM (9 days later)
+print(add_time('6:30 PM', '205:12'))
+# ⇒ (whatever your function returns for this one)
