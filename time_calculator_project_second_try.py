@@ -1,4 +1,4 @@
-#Building a Time calculator by Mayra Silva - Secon Try
+#Building a Time calculator by Mayra Silva - Second Try
 def format_time(time):
     
     separator_hours_minutes = ':'
@@ -71,6 +71,9 @@ def convert_time_24(time_am_or_pm):
 
 
 
+
+
+
 #Receives a list with time in 24hrs format and transforme it into am/pm  (list)
 def convert_time_am_or_pm(time_24hrs_format):
 
@@ -110,6 +113,12 @@ def convert_time_am_or_pm(time_24hrs_format):
 
 
     return(time_converted_am_or_pm)
+
+
+
+
+
+
 
 
 def calculate_time_passed(start, duration):
@@ -152,6 +161,54 @@ def calculate_time_passed(start, duration):
 
 
 
+
+def day_of_week(start_day, days_passed=0):
+
+    days_of_week = {
+    "sunday":    "Sunday",
+    "monday":    "Monday",
+    "tuesday":   "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday":  "Thursday",
+    "friday":    "Friday",
+    "saturday":  "Saturday",
+    }
+
+
+    days_of_week_index = list(days_of_week.keys())
+    new_day = ''
+    start_day = start_day.lower()
+
+
+
+    if start_day in days_of_week.keys():
+        print(f'We are starting on {days_of_week[start_day]}')
+
+
+    if days_passed == 1:
+        new_day = '(next day)'
+
+
+    elif days_passed >= 2:
+
+        index_of_day = days_of_week_index.index(start_day)
+        index_of_new_day = index_of_day + days_passed
+
+
+        while index_of_new_day >= 7:
+            index_of_new_day = (index_of_new_day % 7) 
+            new_day = days_of_week[days_of_week_index[index_of_new_day]]
+            print('This is the new day ', new_day)
+
+
+
+
+
+
+
+
+
+
     
 
 
@@ -169,3 +226,9 @@ print(convert_time_24(format_time('3:00 PM')))
 print('teste 1 ',convert_time_am_or_pm(hour_in_24_pm) )
 convert_time_am_or_pm(hour_in_24_pm)
 print('teste 2 ', convert_time_am_or_pm(hour_in_24_am))
+
+print('See how calculation works', calculate_time_passed([23, 40],[24, 30] ))
+print('second conversion test', convert_time_am_or_pm(calculate_time_passed([23, 40],[24, 30] )))
+
+
+print(day_of_week('TueSday', 9))
