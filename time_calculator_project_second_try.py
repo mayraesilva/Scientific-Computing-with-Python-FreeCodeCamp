@@ -198,7 +198,9 @@ def day_of_week(start_day, days_passed=0):
         while index_of_new_day >= 7:
             index_of_new_day = (index_of_new_day % 7) 
             new_day = days_of_week[days_of_week_index[index_of_new_day]]
-            print('This is the new day ', new_day)
+            #print('This is the new day ', new_day)
+
+    return new_day
 
 
 
@@ -231,4 +233,4 @@ print('See how calculation works', calculate_time_passed([23, 40],[24, 30] ))
 print('second conversion test', convert_time_am_or_pm(calculate_time_passed([23, 40],[24, 30] )))
 
 
-print(day_of_week('TueSday', 9))
+print(day_of_week('Wednesday', 30))
