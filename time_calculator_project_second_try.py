@@ -6,7 +6,7 @@ def format_time(time):
    
 
     splitted_time_hours_and_minutes = splitted_time[0].split(separator_hours_minutes) #separate hours and minutes
-    print(splitted_time_hours_and_minutes)
+    #print(splitted_time_hours_and_minutes)
     hours = splitted_time_hours_and_minutes[0]
     minutes = splitted_time_hours_and_minutes[1]
 
@@ -125,8 +125,8 @@ def calculate_time_passed(start, duration):
 
     hour_started = start[0]
     minutes_started = start[1]
-    hours_passed = duration[0]
-    minutes_passed = duration[1]
+    hours_passed = int(duration[0])
+    minutes_passed = int(duration[1])
 
     
     days_passed = 0
@@ -175,15 +175,17 @@ def day_of_week(start_day, days_passed=0):
     }
 
 
-    days_of_week_index = list(days_of_week.keys())
-    new_day = ''
+    days_of_week_index = list(days_of_week.keys()) 
     start_day = start_day.lower()
+    new_day = ''
 
 
+    # if start_day in days_of_week.keys():
+    #      print(f'We are starting on {days_of_week[start_day]}') 
 
-    if start_day in days_of_week.keys():
-        print(f'We are starting on {days_of_week[start_day]}')
 
+    if days_passed == 0:
+        new_day = days_of_week[start_day]
 
     if days_passed == 1:
         new_day = '(next day)'
@@ -193,6 +195,7 @@ def day_of_week(start_day, days_passed=0):
 
         index_of_day = days_of_week_index.index(start_day)
         index_of_new_day = index_of_day + days_passed
+        new_day = days_of_week[days_of_week_index[index_of_new_day]]
 
 
         while index_of_new_day >= 7:
@@ -200,7 +203,88 @@ def day_of_week(start_day, days_passed=0):
             new_day = days_of_week[days_of_week_index[index_of_new_day]]
             #print('This is the new day ', new_day)
 
+    
+
     return new_day
+
+
+
+
+
+
+def add_time(start, duration, day_of_start=None):
+    
+    time_started = format_time(start)
+    duration_time = format_time(duration)
+    new_day = ''
+
+
+    #print(f'We started at {time_started}, and has passed {duration_time}')
+
+    converted_start = convert_time_24(time_started)
+    new_time_24 = calculate_time_passed(converted_start, duration_time)
+    #print('This is the list size  ', len(new_time_24))
+
+
+    if len(new_time_24) <= 2:
+
+        new_hour = convert_time_am_or_pm(new_time_24)
+        #print(new_hour)
+
+        hour = str(new_hour[0])
+        minutes = str(new_hour[1])
+        part_of_day = new_hour[2]
+            
+        if len(minutes) <= 1:
+            minutes = '0' + minutes
+
+        new_time = f'{hour}:{minutes} {part_of_day}'
+
+
+        if day_of_start != None:
+            new_day = day_of_week(day_of_start, 0)
+            new_time = f'{hour}:{minutes} {part_of_day}, {new_day}'
+
+        
+        return new_time
+            
+
+
+
+    if len(new_time_24) > 2:
+
+        days_passed = new_time_24[2]
+        
+        
+        new_hour = convert_time_am_or_pm(new_time_24)
+        #print(new_hour)
+
+        hour = str(new_hour[0])
+        minutes = str(new_hour[1])
+        part_of_day = new_hour[2]
+            
+        if len(minutes) <= 1:
+            minutes = '0' + minutes
+
+
+        new_time = f'{hour}:{minutes} {part_of_day} ({days_passed} later)'
+
+        if day_of_start != None:
+            new_day = day_of_week(day_of_start, days_passed)
+            new_time = f'{hour}:{minutes}, {part_of_day} {new_day} ({days_passed} later)'
+
+        
+        return new_time
+
+    
+
+    
+            
+
+
+    # print(converted_start)
+    # print(new_time_24)
+    # print(new_day)
 
 
 
@@ -219,18 +303,38 @@ def day_of_week(start_day, days_passed=0):
 
 #Test zone
 
-hour_in_24_am = [0, 30]
-hour_in_24_pm = [18, 45]
+# hour_in_24_am = [0, 30]
+# hour_in_24_pm = [18, 45]
 
-print(convert_time_24(format_time('6:00 AM')))
-print(convert_time_24(format_time('3:00 PM')))
+# print(convert_time_24(format_time('6:00 AM')))
+# print(convert_time_24(format_time('3:00 PM')))
 
-print('teste 1 ',convert_time_am_or_pm(hour_in_24_pm) )
-convert_time_am_or_pm(hour_in_24_pm)
-print('teste 2 ', convert_time_am_or_pm(hour_in_24_am))
+# print('teste 1 ',convert_time_am_or_pm(hour_in_24_pm) )
+# convert_time_am_or_pm(hour_in_24_pm)
+# print('teste 2 ', convert_time_am_or_pm(hour_in_24_am))
 
-print('See how calculation works', calculate_time_passed([23, 40],[24, 30] ))
-print('second conversion test', convert_time_am_or_pm(calculate_time_passed([23, 40],[24, 30] )))
+# print('See how calculation works', calculate_time_passed([23, 40],[24, 30] ))
+# print('second conversion test', convert_time_am_or_pm(calculate_time_passed([23, 40],[24, 30] )))
 
 
-print(day_of_week('Wednesday', 30))
+# print(day_of_week('Wednesday', 30))
+
+
+
+add_time('3:00 PM', '3:10')
+# Returns: 6:10 PM
+
+add_time('11:30 AM', '2:32', 'Monday')
+# Returns: 2:02 PM, Monday
+
+add_time('11:43 AM', '00:20')
+# Returns: 12:03 PM
+
+add_time('10:10 PM', '3:30')
+# Returns: 1:40 AM (next day)
+
+add_time('11:43 PM', '24:20', 'tueSday')
+# Returns: 12:03 AM, Thursday (2 days later)
+
+add_time('6:30 PM', '205:12')
+# Returns: 7:42 AM (9 days later)
