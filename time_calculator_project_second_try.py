@@ -274,7 +274,12 @@ def add_time(start, duration, day_of_start=None):
 
         if day_of_start != None:
             new_day = day_of_week(day_of_start, days_passed)
-            new_time = f'{hour}:{minutes} {part_of_day}, {new_day} ({days_passed} days later)'
+
+            if days_passed == 1:
+                new_time = f'{hour}:{minutes} {part_of_day}, {new_day} (next day)'
+
+            else:
+                new_time = f'{hour}:{minutes} {part_of_day}, {new_day} ({days_passed} days later)'
 
         
         return new_time
@@ -341,3 +346,5 @@ print(add_time('11:43 PM', '24:20', 'tueSday'))
 
 print(add_time('6:30 PM', '205:12'))
 # ⇒ (whatever your function returns for this one)
+
+print(add_time('2:59 AM', '24:00', 'saturDay'))
