@@ -271,7 +271,7 @@ def add_time(start, duration, day_of_start=None):
 
         if day_of_start != None:
             new_day = day_of_week(day_of_start, days_passed)
-            new_time = f'{hour}:{minutes}, {part_of_day} {new_day} ({days_passed} later)'
+            new_time = f'{hour}:{minutes} {part_of_day}, {new_day} ({days_passed} later)'
 
         
         return new_time
