@@ -1,8 +1,9 @@
 #Sudoku Solver by Mayra Silva
 
 class Board:
-    def spam(self):
-        print('Spam!')
+    def __init__(self):
+        pass
 
 gameboard = Board() #instance of a class
-gameboard.spam()
+#gameboard.spam() 
+
