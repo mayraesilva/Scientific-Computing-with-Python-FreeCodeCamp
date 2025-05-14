@@ -1,6 +1,7 @@
 #Sudoku Solver by Mayra Silva
 
 class Board:
-    pass
+    def spam():
+        pass
 
 gameboard = Board() #instance of a class
