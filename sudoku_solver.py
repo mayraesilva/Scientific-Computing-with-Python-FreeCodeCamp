@@ -6,7 +6,10 @@ class Board:
 
     def find_empty_cell(self):
         for row, contents in enumerate(self.board):
-            col = contents.index(0)
+            try:
+              col = contents.index(0)
+            except:
+                pass
 
 
 puzzle = [
