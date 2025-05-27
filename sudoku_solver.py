@@ -13,6 +13,9 @@ class Board:
                 pass
         
         return None
+    
+    def valid_in_row(self, row, num):
+        pass
 
 
 puzzle = [
