@@ -15,7 +15,7 @@ class Board:
         return None
     
     def valid_in_row(self, row, num):
-        pass
+        num not in self.board[row]
 
 
 puzzle = [
