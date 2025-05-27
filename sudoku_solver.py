@@ -2,7 +2,7 @@
 
 class Board:
     def __init__(self, board):
-        pass
+        self.board = board
 
 
 puzzle = [
@@ -18,5 +18,5 @@ puzzle = [
 ]
 
 gameboard = Board(puzzle) #instance of a class
-#gameboard.spam() 
+print(gameboard.board)
 
