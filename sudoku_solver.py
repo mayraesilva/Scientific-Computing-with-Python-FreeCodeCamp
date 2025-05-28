@@ -18,7 +18,8 @@ class Board:
         return num not in self.board[row]
     
     def valid_in_col(self, col, num):
-        pass
+        return all(self.board[row][col] != num for row in range(9))
+
 
 
 puzzle = [
