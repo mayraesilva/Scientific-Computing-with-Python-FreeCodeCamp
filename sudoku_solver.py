@@ -32,6 +32,9 @@ class Board:
         return True #no sudoku rule has been violated
 
 
+    def is_valid(self, empty, num):
+        pass
+
 
 puzzle = [
   [0, 0, 2, 0, 0, 8, 0, 0, 0],
