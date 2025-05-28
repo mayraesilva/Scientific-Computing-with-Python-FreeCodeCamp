@@ -44,6 +44,9 @@ class Board:
             return True
        
 
+        for guess in range(1,10):
+            pass
+
 
 puzzle = [
   [0, 0, 2, 0, 0, 8, 0, 0, 0],
