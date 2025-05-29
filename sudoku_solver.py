@@ -58,6 +58,10 @@ class Board:
 
 
 
+def solve_sudoku(board):
+    pass
+
+
 puzzle = [
   [0, 0, 2, 0, 0, 8, 0, 0, 0],
   [0, 0, 0, 0, 0, 3, 7, 6, 2],
