@@ -69,6 +69,8 @@ def solve_sudoku(board):
     else:
         print('The provided puzzle is unsolvable.')
 
+    return gameboard
+
 
 
 puzzle = [
