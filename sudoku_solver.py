@@ -45,7 +45,7 @@ class Board:
        
 
         for guess in range(1,10):
-            if self.is_valid(next_empty, guess) is True:
+            if self.is_valid(next_empty, guess):
                 pass
 
 
