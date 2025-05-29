@@ -13,6 +13,8 @@ class Board:
             board_str += ' '.join(row_str)
             board_str += '\n'
 
+        return board_str
+
 
 
 
