@@ -51,6 +51,8 @@ class Board:
 
                 if self.solver():
                     return True
+                
+                self.board[row][col] = 0
 
 
 
