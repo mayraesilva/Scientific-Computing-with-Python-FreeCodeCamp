@@ -59,7 +59,7 @@ class Board:
 
 
 def solve_sudoku(board):
-    pass
+    gameboard = Board(board)
 
 
 puzzle = [
