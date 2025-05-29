@@ -102,3 +102,6 @@ puzzle = [
 gameboard = Board(puzzle) #instance of a class
 
 
+solve_sudoku(puzzle)
+
+
