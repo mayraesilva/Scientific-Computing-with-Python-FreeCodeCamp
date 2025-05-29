@@ -45,7 +45,8 @@ class Board:
        
 
         for guess in range(1,10):
-            pass
+            if self.is_valid(next_empty, guess) is True:
+                pass
 
 
 puzzle = [
