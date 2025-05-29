@@ -49,6 +49,9 @@ class Board:
                 row, col = next_empty
                 self.board[row][col] = guess
 
+                if self.solver():
+                    return True
+
 
 
 puzzle = [
