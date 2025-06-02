@@ -7,6 +7,11 @@ class TreeNode:
         self.right = None
 
 
+
 class BinarySearchTree:
     def __init__(self):
         self.root = None
+    
+
+    def _insert(self, node, key):
+        pass
