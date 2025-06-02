@@ -1,4 +1,5 @@
 #Binary Search Tree by Mayra Silva
 
 class TreeNode:
-    pass
+    def __init__(self):
+        pass
