@@ -25,6 +25,6 @@ class BinarySearchTree:
 
         return node
     
-    def insert(self):
-        pass
+    def insert(self, key):
+        self.root = self._insert(self.root, key)
             
