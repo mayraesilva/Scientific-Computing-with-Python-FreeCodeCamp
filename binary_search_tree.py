@@ -7,7 +7,7 @@ class TreeNode:
         self.right = None
 
     def __str__(self):
-        pass
+        return str(self.key)
 
 
 
