@@ -38,5 +38,5 @@ class BinarySearchTree:
         return self._search(node.right, key)
     
     def search(self, key):
-        self._search(self.root, key)
+        return self._search(self.root, key)
 
