@@ -39,4 +39,8 @@ class BinarySearchTree:
     
     def search(self, key):
         return self._search(self.root, key)
+    
+
+bst = BinarySearchTree()
+
 
