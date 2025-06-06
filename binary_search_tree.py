@@ -6,6 +6,9 @@ class TreeNode:
         self.left = None
         self.right = None
 
+    def __str__(self):
+        pass
+
 
 
 class BinarySearchTree:
