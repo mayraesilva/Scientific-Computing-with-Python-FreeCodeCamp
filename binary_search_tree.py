@@ -54,8 +54,12 @@ class BinarySearchTree:
             node.right = self._delete(node.right, key)
         
         else:
+            
             if node.left is None:
                 return node.right
+            
+            elif node.right is None:
+                return node.left
     
 
 bst = BinarySearchTree()
