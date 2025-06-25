@@ -28,8 +28,12 @@ class BinarySearchTree:
 
         return node
     
+
+
     def insert(self, key):
         self.root = self._insert(self.root, key)
+
+
 
     def _search(self, node, key):
         if node is None or node.key == key:
@@ -40,9 +44,12 @@ class BinarySearchTree:
         
         return self._search(node.right, key)
     
+
     def search(self, key):
         return self._search(self.root, key)
     
+
+
     def _delete(self, node, key):
         if node is None:
             return node
@@ -78,11 +85,14 @@ class BinarySearchTree:
     def delete(self,key):
         self.root = self._delete(self.root, key)        
     
+
     def _inorder_traversal(self, node, result):
         if node:
             self._inorder_traversal(node.left, result)
+            result.append(node.key)
+        
 
-            
+
 
 
 
