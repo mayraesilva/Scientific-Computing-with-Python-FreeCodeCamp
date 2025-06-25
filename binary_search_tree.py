@@ -76,7 +76,8 @@ class BinarySearchTree:
 
     
     def delete(self,key):
-        pass
+        self.root = self._delete(self.root, key)        
+        
 
 
 
