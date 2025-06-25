@@ -94,7 +94,7 @@ class BinarySearchTree:
 
 
     def inorder_traversal(self):
-        pass
+        result = []
         
 
 
