@@ -92,6 +92,9 @@ class BinarySearchTree:
             result.append(node.key)
             self._inorder_traversal(node.right, result)
 
+
+    def inorder_traversal(self):
+        pass
         
 
 
