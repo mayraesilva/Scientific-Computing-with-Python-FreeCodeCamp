@@ -118,4 +118,6 @@ bst.delete(40)
 
 print('Search for 40:', bst.search(40))
 
+print('Inorder traversal after deleting 40:', bst.inorder_traversal())
+
 
