@@ -90,6 +90,8 @@ class BinarySearchTree:
         if node:
             self._inorder_traversal(node.left, result)
             result.append(node.key)
+            self._inorder_traversal(node.right, result)
+
         
 
 
