@@ -39,21 +39,30 @@ class Category:
     
 
 
-    def withdraw(self, amount):
+    def withdraw(self, amount, description):
 
         if amount <= self.current_balance and self.check_funds(amount):
-             self.withdraw = {'amount':  -amount, 'withdraw': True}
+             self.withdraw = {'amount':  -amount, 'withdraw': description}
              self.ledger.append(self.withdraw)
              return True
         
         else:
-            self.withdraw = {'amount': 0,  'withdraw': False}
             return False
         
 
 
     
     def transfer(self, amount, other_category):
+
+        if self.check_funds(amount):
+            self.withdraw = {'amount':  -amount, 'Transfer to ': other_category}
+            self.ledger.append(self.withdraw)
+            self.other_category.deposit(amount, f'Transfer from {other_category}')
+            return True
+        
+        else:
+            return False
+
 
 
 
@@ -78,9 +87,18 @@ def create_spend_chart(categories):
 
 # Test lines:
 
-books = Category("books")
+# books = Category("books")
 
-print("Deposit: ", books.deposit(70, 'The way of the Kings'))
-print("Current balance: ", books.get_balance())
-print("Withdraw ", books.withdraw(70))
-print("Current balance: ", books.get_balance())
+# print("Deposit: ", books.deposit(70, 'The way of the Kings'))
+# print("Current balance: ", books.get_balance())
+# print("Withdraw ", books.withdraw(70))
+# print("Current balance: ", books.get_balance())
+
+#Test lines provided by FCC
+
+food = Category('Food')
+print('Deposit: ', food.deposit(1000, 'deposit'))
+print('Withdraw: ', food.withdraw(10.15, 'groceries'))
+print('withdraw 2: ', food.withdraw(15.89, 'restaurant and more food for dessert'))
+clothing = Category('Clothing')
+print('Transfer', food.transfer(50, clothing))
