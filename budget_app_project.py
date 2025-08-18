@@ -40,7 +40,7 @@ class Category:
 
     def withdraw(self, amount):
 
-        if amount <= self.current_balance:
+        if amount <= self.current_balance and self.check_funds(amount):
              self.withdraw = {'amount':  -amount, 'withdraw': True}
              self.ledger.append(self.withdraw)
              return True
