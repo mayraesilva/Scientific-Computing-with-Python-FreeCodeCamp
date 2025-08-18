@@ -31,7 +31,7 @@ class Category:
 
 
     def check_funds(self, amount):
-        if amount > self.current_balance:
+        if amount > self.get_balance():
             return False
         
         else:
@@ -41,7 +41,7 @@ class Category:
 
     def withdraw(self, amount, description):
 
-        if amount <= self.current_balance and self.check_funds(amount):
+        if amount <= self.get_balance() and self.check_funds(amount):
              self.withdraw = {'amount':  -amount, 'withdraw': description}
              self.ledger.append(self.withdraw)
              return True
@@ -99,6 +99,7 @@ def create_spend_chart(categories):
 food = Category('Food')
 print('Deposit: ', food.deposit(1000, 'deposit'))
 print('Withdraw: ', food.withdraw(10.15, 'groceries'))
-print('withdraw 2: ', food.withdraw(15.89, 'restaurant and more food for dessert'))
+print('Current balance:', food.get_balance())
+#print('withdraw: ', food.withdraw(15.89, 'restaurant and more food for dessert'))
 clothing = Category('Clothing')
 print('Transfer', food.transfer(50, clothing))
