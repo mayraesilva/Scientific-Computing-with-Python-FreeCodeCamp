@@ -8,8 +8,9 @@ class Category:
     
 
     def deposit(self, amount, description=''):
-        self.deposit = {"amount": amount, "description": description}
-        self.ledger.append(self.deposit)
+        if amount >=0:
+            self.deposit = {"amount": amount, "description": description}
+            self.ledger.append(self.deposit)
 
         return self.ledger
     
@@ -48,6 +49,13 @@ class Category:
         else:
             self.withdraw = {'amount': 0,  'withdraw': False}
             return False
+        
+
+
+    
+    def transfer(self, amount, other_category):
+
+
 
     
 
@@ -74,5 +82,5 @@ books = Category("books")
 
 print("Deposit: ", books.deposit(70, 'The way of the Kings'))
 print("Current balance: ", books.get_balance())
-print("Withdraw ", books.withdraw(30))
+print("Withdraw ", books.withdraw(70))
 print("Current balance: ", books.get_balance())
