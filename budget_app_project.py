@@ -15,7 +15,7 @@ class Category:
     
 
 
-    def get_balance(self):
+    def get_balance(self): # To get the total amount after transactions
 
         self.balance = 0
 
@@ -26,6 +26,15 @@ class Category:
         self.current_balance = self.balance
 
         return self.current_balance
+    
+
+
+    def check_funds(self, amount):
+        if amount > self.current_balance:
+            return False
+        
+        else:
+            return True
     
 
 
@@ -40,6 +49,7 @@ class Category:
             self.withdraw = {'amount': 0,  'withdraw': False}
             return False
 
+    
 
 
 
