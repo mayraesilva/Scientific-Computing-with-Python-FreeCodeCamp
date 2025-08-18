@@ -10,7 +10,7 @@ class Category:
     def deposit(self, amount, description=''):
         self.deposit = {"amount": amount, "description": description}
         self.ledger.append(self.deposit)
-        
+
         return self.ledger
     
 
@@ -19,9 +19,9 @@ class Category:
 
         self.balance = 0
 
-        for transactions in self.ledeger:
-            for transaction in transactions:
-                self.balance += transaction.get('amount')
+        for transaction in self.ledger:
+            
+            self.balance += transaction.get('amount')
         
         self.current_balance = self.balance
 
@@ -49,3 +49,4 @@ def create_spend_chart(categories):
 books = Category("books")
 
 print("Deposit: ", books.deposit(70, 'The way of the Kings'))
+print("Current balance: ", books.get_balance())
