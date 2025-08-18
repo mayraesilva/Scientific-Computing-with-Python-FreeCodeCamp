@@ -9,7 +9,8 @@ class Category:
 
     def deposit(self, amount, description=''):
         self.deposit = {"amount": amount, "description": description}
-        self.ledger.append = self.deposit
+        self.ledger.append(self.deposit)
+        return self.ledger
         
 
 
@@ -21,3 +22,10 @@ class Category:
 
 def create_spend_chart(categories):
     pass
+
+
+# Test lines:
+
+books = Category("books")
+
+print("Deposit: ", books.deposit(70, 'The way of the Kings'))
