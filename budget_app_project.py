@@ -10,7 +10,27 @@ class Category:
     def deposit(self, amount, description=''):
         self.deposit = {"amount": amount, "description": description}
         self.ledger.append(self.deposit)
+        
         return self.ledger
+    
+
+
+    def get_balance(self):
+
+        self.balance = 0
+
+        for transactions in self.ledeger:
+            for transaction in transactions:
+                self.balance += transaction.get('amount')
+        
+        self.current_balance = self.balance
+
+        return self.current_balance
+
+
+
+
+
         
 
 
