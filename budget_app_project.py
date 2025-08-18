@@ -5,6 +5,13 @@ class Category:
     def __init__(self, name): #name is used here to define the category
         self.name = name
         self.ledger = []
+    
+
+    def deposit(self, amount, description=''):
+        self.deposit = {"amount": amount, "description": description}
+        self.ledger.append = self.deposit
+        
+
 
 
     
