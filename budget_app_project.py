@@ -26,6 +26,20 @@ class Category:
         self.current_balance = self.balance
 
         return self.current_balance
+    
+
+
+    def withdraw(self, amount):
+
+        if amount <= self.current_balance:
+             self.withdraw = {'amount':  -amount, 'withdraw': True}
+             self.ledger.append(self.withdraw)
+             return True
+        
+        else:
+            self.withdraw = {'amount': 0,  'withdraw': False}
+            return False
+
 
 
 
@@ -49,4 +63,6 @@ def create_spend_chart(categories):
 books = Category("books")
 
 print("Deposit: ", books.deposit(70, 'The way of the Kings'))
+print("Current balance: ", books.get_balance())
+print("Withdraw ", books.withdraw(30))
 print("Current balance: ", books.get_balance())
