@@ -57,7 +57,7 @@ class Category:
         if self.check_funds(amount):
             self.withdraw = {'amount':  -amount, 'Transfer to ': other_category}
             self.ledger.append(self.withdraw)
-            self.other_category.deposit(amount, f'Transfer from {other_category}')
+            other_category.deposit(amount, f'Transfer from {other_category}')
             return True
         
         else:
