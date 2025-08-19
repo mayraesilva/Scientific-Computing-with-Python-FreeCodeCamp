@@ -81,7 +81,7 @@ class Category:
 
 
 
-def create_spend_chart(categories):
+def create_spend_chart(categories): #categories is a list
     pass
 
 
@@ -100,6 +100,6 @@ food = Category('Food')
 print('Deposit: ', food.deposit(1000, 'deposit'))
 print('Withdraw: ', food.withdraw(10.15, 'groceries'))
 print('Current balance:', food.get_balance())
-#print('withdraw: ', food.withdraw(15.89, 'restaurant and more food for dessert'))
+print('withdraw: ', food.withdraw(15.89, 'restaurant and more food for dessert'))
 clothing = Category('Clothing')
 print('Transfer', food.transfer(50, clothing))
