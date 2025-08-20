@@ -49,7 +49,7 @@ class Category:
 
         if amount <= self.get_balance() and self.check_funds(amount):
              self.withdraw_transaction = {'amount':  -amount, 'withdraw': description}
-             self.ledger.append(self.withdraw)
+             self.ledger.append(self.withdraw_transaction)
              return True
         
         else:
