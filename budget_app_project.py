@@ -41,8 +41,14 @@ class Category:
 
     def withdraw(self, amount, description):
 
+        # print("amount type:", type(amount))
+        # print("desc type/len:", type(description), len(description))
+        # print("balance:", self.get_balance())
+        # print("ledger so far:", self.ledger)
+
+
         if amount <= self.get_balance() and self.check_funds(amount):
-             self.withdraw = {'amount':  -amount, 'withdraw': description}
+             self.withdraw_transaction = {'amount':  -amount, 'withdraw': description}
              self.ledger.append(self.withdraw)
              return True
         
@@ -100,6 +106,10 @@ food = Category('Food')
 print('Deposit: ', food.deposit(1000, 'deposit'))
 print('Withdraw: ', food.withdraw(10.15, 'groceries'))
 print('Current balance:', food.get_balance())
-print('withdraw: ', food.withdraw(15.89, 'restaurant and more food for dessert'))
+
+
+
 clothing = Category('Clothing')
+
+print('withdraw: ', food.withdraw(15.80, 'restaurant and more food for dessert'))
 print('Transfer', food.transfer(50, clothing))
