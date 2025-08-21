@@ -68,6 +68,12 @@ class Category:
         
         else:
             return False
+        
+
+
+    
+    def output_request(self, amount, other_category):
+        pass
 
 
 
@@ -89,7 +95,6 @@ class Category:
 
 def create_spend_chart(categories): #categories is a list
     pass
-
 
 # Test lines:
 
