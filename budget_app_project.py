@@ -73,7 +73,14 @@ class Category:
 
     
     def output_request(self, amount, other_category):
-        pass
+        stars = '******************************'
+
+        category_lenth = len(self.name)
+        print(len(stars))
+        left_pad = int(((len(stars) - len(category_lenth))/ 2) + 1)
+        
+
+
 
 
 
@@ -118,3 +125,4 @@ clothing = Category('Clothing')
 
 print('withdraw: ', food.withdraw(15.80, 'restaurant and more food for dessert'))
 print('Transfer', food.transfer(50, clothing))
+print(food.output_request(50, 'roupa'))
