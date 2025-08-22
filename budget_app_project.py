@@ -78,7 +78,7 @@ class Category:
         category_lenth = len(self.name)
         print(len(stars))
         left_pad = int(((len(stars) - len(category_lenth))/ 2) + 1)
-        
+
 
 
 
@@ -115,14 +115,15 @@ def create_spend_chart(categories): #categories is a list
 #Test lines provided by FCC
 
 food = Category('Food')
-print('Deposit: ', food.deposit(1000, 'deposit'))
-print('Withdraw: ', food.withdraw(10.15, 'groceries'))
-print('Current balance:', food.get_balance())
+# print('Deposit: ', food.deposit(1000, 'deposit'))
+# print('Withdraw: ', food.withdraw(10.15, 'groceries'))
+# print('Current balance:', food.get_balance())
 
 
 
-clothing = Category('Clothing')
+# clothing = Category('Clothing')
 
-print('withdraw: ', food.withdraw(15.80, 'restaurant and more food for dessert'))
-print('Transfer', food.transfer(50, clothing))
-print(food.output_request(50, 'roupa'))
+# print('withdraw: ', food.withdraw(15.80, 'restaurant and more food for dessert'))
+# print('Transfer', food.transfer(50, clothing))
+# print(food.output_request(50, 'roupa'))
+print(str(food))
