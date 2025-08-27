@@ -93,6 +93,7 @@ class Category:
         # withdraws
         for dictionary in self.ledger:
             if 'withdraw' in dictionary.keys():
+                withdraw_amout = dictionary.get('amount')
                 
        
 
