@@ -61,7 +61,7 @@ class Category:
     def transfer(self, amount, other_category):
 
         if self.check_funds(amount):
-            self.withdraw(amount, f'Transfer to {other_category}')
+            self.withdraw(amount, f'Transfer to {other_category.name}')
             other_category.deposit(amount, f'Transfer from {self.name}')
             return True
         
