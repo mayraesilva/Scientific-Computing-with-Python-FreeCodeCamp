@@ -93,11 +93,22 @@ class Category:
         # withdraws
         for dictionary in self.ledger:
             if 'withdraw' in dictionary.keys():
-                withdraw_amout = dictionary.get('amount')
+                withdraw_amount = f"{dictionary.get('amount'):.2f}"
+                withdraw_description = dictionary.get('withdraw')
+
+                if len(withdraw_description) > 23:
+                    withdraw_description = withdraw_description[:23]
+            
+                
+                number_of_spaces_withdraw = 30 - (len(withdraw_description) + len(withdraw_amount))
+                print(withdraw_description + ' ' * number_of_spaces_withdraw + withdraw_amount)
+        
+        #total
+
                 
        
 
-        return 'love'
+        return f'Total: {self.current_balance:.2f}'
 
 
 
