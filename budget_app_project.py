@@ -72,12 +72,16 @@ class Category:
 
 
     
-    def output_request(self, amount, other_category):
+    def __repr__(self):
         stars = '******************************'
-
+        #Name of class between stars
         category_lenth = len(self.name)
         print(len(stars))
-        left_pad = int(((len(stars) - len(category_lenth))/ 2) + 1)
+        left_pad = int(((len(stars) - category_lenth))/ 2)
+        right_pad = (len(stars) - len(self.name) - left_pad)
+        print(left_pad * '*' + self.name + right_pad * '*')
+
+
 
 
 
@@ -126,4 +130,4 @@ food = Category('Food')
 # print('withdraw: ', food.withdraw(15.80, 'restaurant and more food for dessert'))
 # print('Transfer', food.transfer(50, clothing))
 # print(food.output_request(50, 'roupa'))
-print(str(food))
+print(food)
