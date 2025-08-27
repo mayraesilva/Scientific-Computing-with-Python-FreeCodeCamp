@@ -61,9 +61,8 @@ class Category:
     def transfer(self, amount, other_category):
 
         if self.check_funds(amount):
-            self.withdraw = {'amount':  -amount, 'Transfer to ': other_category}
-            self.ledger.append(self.withdraw)
-            other_category.deposit(amount, f'Transfer from {other_category}')
+            self.withdraw(amount, f'Transfer to {other_category}')
+            other_category.deposit(amount, f'Transfer from {self.name}')
             return True
         
         else:
@@ -75,12 +74,16 @@ class Category:
     def __repr__(self):
         stars = '******************************'
         #Name of class between stars
-        category_lenth = len(self.name)
+        category_length = len(self.name)
         print(len(stars))
-        left_pad = int(((len(stars) - category_lenth))/ 2)
+        left_pad = int(((len(stars) - category_length))/ 2)
         right_pad = (len(stars) - len(self.name) - left_pad)
         print(left_pad * '*' + self.name + right_pad * '*')
 
+        #initial deposit
+        print(self.ledger)
+        initial_deposit_value = self.ledger
+        print(initial_deposit_value)
 
 
 
@@ -89,13 +92,7 @@ class Category:
 
 
 
-    
 
-
-
-
-
-        
 
 
 
@@ -118,16 +115,11 @@ def create_spend_chart(categories): #categories is a list
 
 #Test lines provided by FCC
 
+
 food = Category('Food')
-# print('Deposit: ', food.deposit(1000, 'deposit'))
-# print('Withdraw: ', food.withdraw(10.15, 'groceries'))
-# print('Current balance:', food.get_balance())
-
-
-
-# clothing = Category('Clothing')
-
-# print('withdraw: ', food.withdraw(15.80, 'restaurant and more food for dessert'))
-# print('Transfer', food.transfer(50, clothing))
-# print(food.output_request(50, 'roupa'))
+food.deposit(1000, 'deposit')
+food.withdraw(10.15, 'groceries')
+food.withdraw(15.89, 'restaurant and more food for dessert')
+clothing = Category('Clothing')
+food.transfer(50, clothing)
 print(food)
