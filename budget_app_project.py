@@ -75,15 +75,28 @@ class Category:
         stars = '******************************'
         #Name of class between stars
         category_length = len(self.name)
-        print(len(stars))
+        #print(len(stars))
         left_pad = int(((len(stars) - category_length))/ 2)
         right_pad = (len(stars) - len(self.name) - left_pad)
         print(left_pad * '*' + self.name + right_pad * '*')
 
         #initial deposit
-        print(self.ledger)
-        initial_deposit_value = self.ledger
-        print(initial_deposit_value)
+        #print(self.ledger)
+        initial_deposit_value = self.ledger[0].get('amount')
+        initial_deposit_string = 'initial deposit'
+        initial_deposit_value_as_string = f'{initial_deposit_value:.2f}'
+        #print(len(initial_deposit_value_as_string))
+        number_of_spaces = 30 - (len(initial_deposit_string) + len(initial_deposit_value_as_string))
+        print(initial_deposit_string + ' ' * number_of_spaces +initial_deposit_value_as_string)
+
+
+        # withdraws
+        for dictionary in self.ledger:
+            if 'withdraw' in dictionary.keys():
+                
+       
+
+        return 'love'
 
 
 
