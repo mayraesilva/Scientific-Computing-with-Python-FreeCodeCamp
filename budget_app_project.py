@@ -41,11 +41,6 @@ class Category:
 
     def withdraw(self, amount, description):
 
-        # print("amount type:", type(amount))
-        # print("desc type/len:", type(description), len(description))
-        # print("balance:", self.get_balance())
-        # print("ledger so far:", self.ledger)
-
 
         if amount <= self.get_balance() and self.check_funds(amount):
              self.withdraw_transaction = {'amount':  -amount, 'withdraw': description}
@@ -75,40 +70,47 @@ class Category:
         stars = '******************************'
         #Name of class between stars
         category_length = len(self.name)
-        #print(len(stars))
         left_pad = int(((len(stars) - category_length))/ 2)
         right_pad = (len(stars) - len(self.name) - left_pad)
-        print(left_pad * '*' + self.name + right_pad * '*')
+        category_title = left_pad * '*' + self.name + right_pad * '*'
+        
 
         #initial deposit
         #print(self.ledger)
         initial_deposit_value = self.ledger[0].get('amount')
         initial_deposit_string = 'initial deposit'
         initial_deposit_value_as_string = f'{initial_deposit_value:.2f}'
-        #print(len(initial_deposit_value_as_string))
+
         number_of_spaces = 30 - (len(initial_deposit_string) + len(initial_deposit_value_as_string))
-        print(initial_deposit_string + ' ' * number_of_spaces +initial_deposit_value_as_string)
-
-
-        # withdraws
+        initial_deposit = initial_deposit_string + ' ' * number_of_spaces +initial_deposit_value_as_string
+        
+        
+         # withdraws
+        max_description_size = 23
+        total_of_withdraws = []
         for dictionary in self.ledger:
             if 'withdraw' in dictionary.keys():
                 withdraw_amount = f"{dictionary.get('amount'):.2f}"
                 withdraw_description = dictionary.get('withdraw')
 
-                if len(withdraw_description) > 23:
-                    withdraw_description = withdraw_description[:23]
+                if len(withdraw_description) > max_description_size:
+                    withdraw_description = withdraw_description[:max_description_size]
             
                 
                 number_of_spaces_withdraw = 30 - (len(withdraw_description) + len(withdraw_amount))
-                print(withdraw_description + ' ' * number_of_spaces_withdraw + withdraw_amount)
+                withdraws_done = withdraw_description + ' ' * number_of_spaces_withdraw + withdraw_amount
+                total_of_withdraws.append(withdraws_done)
+
         
+                
+        for withdraw in total_of_withdraws:
+
         #total
 
                 
        
 
-        return f'Total: {self.current_balance:.2f}'
+        return f'Total: {self.get_balance():.2f}'
 
 
 
