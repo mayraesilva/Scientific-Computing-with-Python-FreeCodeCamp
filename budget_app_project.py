@@ -133,6 +133,7 @@ def create_spend_chart(categories): #categories is a list
     
     categories_spend_chart = []
     total_spent_per_category = []
+    total_amount_spent = 0
 
     for category in categories:
         categories_spend_chart.append({category.name : category.ledger})
@@ -153,7 +154,18 @@ def create_spend_chart(categories): #categories is a list
         category_total_spend_chart = {key: total_value_spent for key in dict_of_category.keys()}
         total_spent_per_category.append(category_total_spend_chart)
 
-    print(total_spent_per_category)
+    #print(total_spent_per_category)
+
+    for dict_of_category in total_spent_per_category:
+        for category in dict_of_category.keys():
+            total_amount_spent += dict_of_category.get(category)
+    
+    print(total_amount_spent)
+
+
+
+
+
                     
 
 
@@ -172,5 +184,7 @@ food.withdraw(15.89, 'restaurant and more food for dessert')
 clothing = Category('Clothing')
 food.transfer(50, clothing)
 print(food)
+
+clothing.withdraw(15.89, 'jacket')
 
 create_spend_chart([food, clothing])
