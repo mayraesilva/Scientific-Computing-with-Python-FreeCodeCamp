@@ -132,11 +132,32 @@ class Category:
 def create_spend_chart(categories): #categories is a list
     
     categories_spend_chart = []
+    total_spent_per_category = []
 
     for category in categories:
-        categories_spend_chart.append({category : category.ledger})
+        categories_spend_chart.append({category.name : category.ledger})
     
     #print(categories_spend_chart)
+
+    for dict_of_category in categories_spend_chart: 
+        total_value_spent = 0
+        
+        for transactions in dict_of_category.values():
+            
+            for transaction in transactions:
+                
+                if "withdraw" in transaction.keys():
+                    amount_spent = transaction.get('amount')
+                    total_value_spent += amount_spent
+
+        category_total_spend_chart = {key: total_value_spent for key in dict_of_category.keys()}
+        total_spent_per_category.append(category_total_spend_chart)
+
+    print(total_spent_per_category)
+                    
+
+
+
 
 
 
