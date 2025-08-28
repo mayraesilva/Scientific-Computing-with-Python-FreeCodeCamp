@@ -168,7 +168,7 @@ def create_spend_chart(categories): #categories is a list
     for dict_of_category in total_spent_per_category:
         for category in dict_of_category.keys():
             amount = dict_of_category.get(category)
-            category_percentage = (amount / total_amount_spent) * 100
+            category_percentage = (int((((amount / total_amount_spent) * 100)) // 10) * 10) # to get the percentage the way FCC expects
             category_percentage_dict = {category : category_percentage}
             total_spent_per_catagory_percentage.append(category_percentage_dict)
     
@@ -179,8 +179,34 @@ def create_spend_chart(categories): #categories is a list
     # Now let's go into the plot part
 
     title = 'Percentage spent by category'
-    level = [x for x in range(0,110,10)]
-    print(level)
+    levels = [x for x in range(0,110,10)]
+    print(levels)
+
+    levels_dict = {}
+
+    for level in levels:
+        if level == 100:
+            levels_dict[level] = f'{level}| '
+        
+        levels_dict[level] = f' {level}| '
+
+        for dict_of_percentage in total_spent_per_catagory_percentage:
+            for amount in dict_of_percentage.values():
+
+                if amount >= level:
+                    levels_dict[level] += 'o  '
+                else:
+                    levels_dict[level] += '  '
+        
+
+    print(levels_dict)
+
+    
+
+
+        
+
+
     
 
 
