@@ -134,6 +134,7 @@ def create_spend_chart(categories): #categories is a list
     categories_spend_chart = []
     total_spent_per_category = []
     total_amount_spent = 0
+    total_spent_per_catagory_percentage = []
 
     for category in categories:
         categories_spend_chart.append({category.name : category.ledger})
@@ -160,7 +161,16 @@ def create_spend_chart(categories): #categories is a list
         for category in dict_of_category.keys():
             total_amount_spent += dict_of_category.get(category)
     
-    print(total_amount_spent)
+    #Now for percentages per categories
+    
+    for dict_of_category in total_spent_per_category:
+        for category in dict_of_category.keys():
+            amount = dict_of_category.get(category)
+            category_percentage = amount / total_amount_spent
+            
+
+
+    
 
 
 
