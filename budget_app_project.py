@@ -101,16 +101,16 @@ class Category:
                 withdraws_done = withdraw_description + ' ' * number_of_spaces_withdraw + withdraw_amount
                 total_of_withdraws.append(withdraws_done)
 
-        
-                
+
+        all_withdraws = ''        
         for withdraw in total_of_withdraws:
+            all_withdraws += withdraw + '\n'
 
         #total
+        final_balance = f'Total: {self.get_balance():.2f}'
+        final_result = category_title+ '\n' + initial_deposit + '\n' + all_withdraws + final_balance
 
-                
-       
-
-        return f'Total: {self.get_balance():.2f}'
+        return final_result
 
 
 
