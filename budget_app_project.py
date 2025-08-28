@@ -167,7 +167,10 @@ def create_spend_chart(categories): #categories is a list
         for category in dict_of_category.keys():
             amount = dict_of_category.get(category)
             category_percentage = amount / total_amount_spent
-            
+            category_percentage_dict = {category : category_percentage}
+            total_spent_per_catagory_percentage.append(category_percentage_dict)
+    
+    print(total_spent_per_catagory_percentage)
 
 
     
