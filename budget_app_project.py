@@ -136,11 +136,12 @@ def create_spend_chart(categories): #categories is a list
     total_amount_spent = 0
     total_spent_per_catagory_percentage = []
 
+    #to get the transactions made in this category
     for category in categories:
         categories_spend_chart.append({category.name : category.ledger})
     
-    #print(categories_spend_chart)
-
+    
+    # to get the amount withdraw in each category
     for dict_of_category in categories_spend_chart: 
         total_value_spent = 0
         
@@ -157,16 +158,17 @@ def create_spend_chart(categories): #categories is a list
 
     #print(total_spent_per_category)
 
+    # to get the total amount spent
     for dict_of_category in total_spent_per_category:
         for category in dict_of_category.keys():
             total_amount_spent += dict_of_category.get(category)
     
-    #Now for percentages per categories
     
+    # to get the percentage spent in each category 
     for dict_of_category in total_spent_per_category:
         for category in dict_of_category.keys():
             amount = dict_of_category.get(category)
-            category_percentage = amount / total_amount_spent
+            category_percentage = (amount / total_amount_spent) * 100
             category_percentage_dict = {category : category_percentage}
             total_spent_per_catagory_percentage.append(category_percentage_dict)
     
