@@ -85,30 +85,38 @@ class Category:
         initial_deposit = initial_deposit_string + ' ' * number_of_spaces +initial_deposit_value_as_string
         
         
-         # withdraws
+         # withdrawals
         max_description_size = 23
-        total_of_withdraws = []
+        max_char_amount = 7
+        total_of_withdrawals = []
+
         for dictionary in self.ledger:
+
             if 'withdraw' in dictionary.keys():
-                withdraw_amount = f"{dictionary.get('amount'):.2f}"
                 withdraw_description = dictionary.get('withdraw')
+                withdraw_amount = f"{dictionary.get('amount'):.2f}"
+                          
 
                 if len(withdraw_description) > max_description_size:
                     withdraw_description = withdraw_description[:max_description_size]
+
+
+                if len(withdraw_amount) > max_char_amount:
+                    withdraw_amount = withdraw_amount[:max_char_amount]
             
                 
                 number_of_spaces_withdraw = 30 - (len(withdraw_description) + len(withdraw_amount))
                 withdraws_done = withdraw_description + ' ' * number_of_spaces_withdraw + withdraw_amount
-                total_of_withdraws.append(withdraws_done)
+                total_of_withdrawals.append(withdraws_done)
 
 
-        all_withdraws = ''        
+        all_withdrawals = ''        
         for withdraw in total_of_withdraws:
-            all_withdraws += withdraw + '\n'
+            all_withdrawals += withdraw + '\n'
 
         #total
         final_balance = f'Total: {self.get_balance():.2f}'
-        final_result = category_title+ '\n' + initial_deposit + '\n' + all_withdraws + final_balance
+        final_result = category_title+ '\n' + initial_deposit + '\n' + all_withdrawals + final_balance
 
         return final_result
 
@@ -117,30 +125,17 @@ class Category:
 
 
 
-
-
-
-
-
-
-    
-
+#Now we are going to create the function
 
 
 
 def create_spend_chart(categories): #categories is a list
     pass
 
-# Test lines:
 
-# books = Category("books")
 
-# print("Deposit: ", books.deposit(70, 'The way of the Kings'))
-# print("Current balance: ", books.get_balance())
-# print("Withdraw ", books.withdraw(70))
-# print("Current balance: ", books.get_balance())
 
-#Test lines provided by FCC
+
 
 
 food = Category('Food')
