@@ -175,6 +175,15 @@ def create_spend_chart(categories): #categories is a list
     print(total_spent_per_catagory_percentage)
 
 
+
+    # Now let's go into the plot part
+
+    title = 'Percentage spent by category'
+    level = [x for x in range(0,110,10)]
+    print(level)
+    
+
+
     
 
 
