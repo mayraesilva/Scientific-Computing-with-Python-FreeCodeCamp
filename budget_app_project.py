@@ -111,7 +111,7 @@ class Category:
 
 
         all_withdrawals = ''        
-        for withdraw in total_of_withdraws:
+        for withdraw in total_of_withdrawals:
             all_withdrawals += withdraw + '\n'
 
         #total
@@ -130,7 +130,13 @@ class Category:
 
 
 def create_spend_chart(categories): #categories is a list
-    pass
+    
+    categories_spend_chart = []
+
+    for category in categories:
+        categories_spend_chart.append({category : category.ledger})
+    
+    #print(categories_spend_chart)
 
 
 
@@ -145,3 +151,5 @@ food.withdraw(15.89, 'restaurant and more food for dessert')
 clothing = Category('Clothing')
 food.transfer(50, clothing)
 print(food)
+
+create_spend_chart([food, clothing])
