@@ -18,15 +18,15 @@ class Category:
 
     def get_balance(self): # To get the total amount after transactions
 
-        self.balance = 0
+        balance = 0
 
         for transaction in self.ledger:
             
-            self.balance += transaction.get('amount')
+            balance += transaction.get('amount')
         
-        self.current_balance = self.balance
+        current_balance = balance
 
-        return self.current_balance
+        return current_balance
     
 
 
@@ -43,8 +43,8 @@ class Category:
 
 
         if amount <= self.get_balance() and self.check_funds(amount):
-             self.withdraw_transaction = {'amount':  -amount, 'withdraw': description}
-             self.ledger.append(self.withdraw_transaction)
+             withdraw_transaction = {'amount':  -amount, 'withdraw': description}
+             self.ledger.append(withdraw_transaction)
              return True
         
         else:
