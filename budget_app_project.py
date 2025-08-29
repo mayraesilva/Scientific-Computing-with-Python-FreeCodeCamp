@@ -204,6 +204,8 @@ def create_spend_chart(categories): #categories is a list
     for level in levels_dict.values():
         print(level)
 
+    base_line = '    ' + '---' * len(total_spent_per_catagory_percentage) + '-'
+    print(base_line)
 
 
 
