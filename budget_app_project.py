@@ -185,20 +185,15 @@ def create_spend_chart(categories): #categories is a list
     levels_dict = {}
 
     for level in levels:
-        if level == 100:
+        if level == 100:            
             levels_dict[level] = f'{level}| '
-<<<<<<< HEAD
 
-        if level == 0:
-            levels_dict[level] = f'    {level}| '
-        
-        levels_dict[level] = f'       {level}| '
-=======
         elif level == 0:
             levels_dict[level] = f'  {level}| '
+            
         else:
             levels_dict[level] = f' {level}| '
->>>>>>> 4a0c8911c44adde96fb9899bfcc242b0c60ed70f
+
 
         for dict_of_percentage in total_spent_per_catagory_percentage:
             for amount in dict_of_percentage.values():
