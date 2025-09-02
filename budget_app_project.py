@@ -214,7 +214,7 @@ def create_spend_chart(categories): #categories is a list
         levels_result += level
 
     #print(levels_result)
-    base_line = '\n    ' + '---' * len(total_spent_per_catagory_percentage) + '-'
+    base_line = '\n    ' + '---' * len(total_spent_per_catagory_percentage) + '-\n'
     #print(base_line)
 
 
@@ -254,6 +254,7 @@ def create_spend_chart(categories): #categories is a list
     
             
     result = title + levels_result + base_line + categories_named_vertically
+    print(result)
 
     return result
 
