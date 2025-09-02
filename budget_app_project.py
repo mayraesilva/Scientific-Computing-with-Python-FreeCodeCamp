@@ -172,15 +172,15 @@ def create_spend_chart(categories): #categories is a list
             category_percentage_dict = {category : category_percentage}
             total_spent_per_catagory_percentage.append(category_percentage_dict)
     
-    print(total_spent_per_catagory_percentage)
+    #print(total_spent_per_catagory_percentage)
 
 
 
     # Now let's go into the plot part
 
-    title = 'Percentage spent by category'
+    title = 'Percentage spent by category\n'
     levels = [x for x in range(100,-10,-10)]
-    #print(levels)
+    
 
     levels_dict = {}
 
@@ -203,13 +203,19 @@ def create_spend_chart(categories): #categories is a list
                 else:
                     levels_dict[level] += '  '
         
-
+    levels_result = ''
+    for level in levels_dict.keys():
+        if level == 0:
+            continue
+        else:
+            levels_dict[level] += '\n'
+    
     for level in levels_dict.values():
-        
-        print(level)
+        levels_result += level
 
-    base_line = '    ' + '---' * len(total_spent_per_catagory_percentage) + '-'
-    print(base_line)
+    #print(levels_result)
+    base_line = '\n    ' + '---' * len(total_spent_per_catagory_percentage) + '-'
+    #print(base_line)
 
 
 
@@ -218,16 +224,14 @@ def create_spend_chart(categories): #categories is a list
         for category in dict_of_percentage.keys():
             categories_name.append(category)
 
-    #print(categories_name)
+    
     max_row_vertically = max(categories_name, key=len)
-    #print(max_row_vertically)
     rows_needed_vertically = len(max_row_vertically)
     quantity_of_categories = len(categories_name)
 
     rows = {} 
     for row_number in range(rows_needed_vertically):
         rows[row_number] = '     '
-
 
 
     for row_number in range(rows_needed_vertically):
@@ -237,10 +241,21 @@ def create_spend_chart(categories): #categories is a list
             else:
                 rows[row_number] += '   '
 
+    categories_named_vertically = ''
+    for row in rows.keys():
+        if row == (rows_needed_vertically - 1):
+            continue
+        else:
+            rows[row] += '\n'
+
     for row in rows.values():
-        print(row)
+        categories_named_vertically += row
+    
+    
             
-    result = title
+    result = title + levels_result + base_line + categories_named_vertically
+
+    return result
 
 
 
