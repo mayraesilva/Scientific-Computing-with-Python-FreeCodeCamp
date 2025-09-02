@@ -79,35 +79,29 @@ class Category:
         #print(self.ledger)
         initial_deposit_value = 0
 
-        for transaction in self.ledger:
-            while transaction['description'] != 'deposit':
-                continue
-            initial_deposit_value = transaction.get('amount')
+        # for transaction in self.ledger:
+        #     if transaction.get('description') != 'deposit':
+        #         continue
+        #     initial_deposit_value = transaction.get('amount')
+        #     break
 
-
-
-
-
-
-
-
-        initial_deposit_string = 'initial deposit'
-        initial_deposit_value_as_string = f'{initial_deposit_value:.2f}'
-
-        number_of_spaces = 30 - (len(initial_deposit_string) + len(initial_deposit_value_as_string))
-        initial_deposit = initial_deposit_string + ' ' * number_of_spaces +initial_deposit_value_as_string
-        
-        
          # withdrawals
         max_description_size = 23
         max_char_amount = 7
         total_of_withdrawals = []
+        deposit_appearance = 0
 
         for dictionary in self.ledger:
 
-            if 'withdraw' in dictionary.keys():
-                withdraw_description = dictionary.get('withdraw')
+            if dictionary.get('description') == 'deposit' and deposit_appearance == 0:
+                initial_deposit_value = dictionary.get('amount')
+                deposit_appearance += 1
+
+
+            elif 'description' in dictionary.keys() and deposit_appearance > 0:
+                withdraw_description = dictionary.get('description')
                 withdraw_amount = f"{dictionary.get('amount'):.2f}"
+           
                           
 
                 if len(withdraw_description) > max_description_size:
@@ -122,8 +116,12 @@ class Category:
                 withdraws_done = withdraw_description + ' ' * number_of_spaces_withdraw + withdraw_amount
                 total_of_withdrawals.append(withdraws_done)
 
+        initial_deposit_string = 'initial deposit'
+        initial_deposit_value_as_string = f'{initial_deposit_value:.2f}'
+        all_withdrawals = ''      
+        number_of_spaces = 30 - (len(initial_deposit_string) + len(initial_deposit_value_as_string))
+        initial_deposit = initial_deposit_string + ' ' * number_of_spaces +initial_deposit_value_as_string
 
-        all_withdrawals = ''        
         for withdraw in total_of_withdrawals:
             all_withdrawals += withdraw + '\n'
 
@@ -162,7 +160,7 @@ def create_spend_chart(categories): #categories is a list
             
             for transaction in transactions:
                 
-                if (transactions[transaction] < 0 ) in transactions:
+                if (transaction < 0 ):
                     amount_spent = transaction.get('amount')
                     total_value_spent += amount_spent
 
