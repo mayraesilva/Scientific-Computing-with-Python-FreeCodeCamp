@@ -39,11 +39,11 @@ class Category:
     
 
 
-    def withdraw(self, amount, description):
+    def withdraw(self, amount, description=''):
 
 
         if amount <= self.get_balance() and self.check_funds(amount):
-             withdraw_transaction = {'amount':  -amount, 'withdraw': description}
+             withdraw_transaction = {'amount':  -amount, 'description': description}
              self.ledger.append(withdraw_transaction)
              return True
         
@@ -77,7 +77,20 @@ class Category:
 
         #initial deposit
         #print(self.ledger)
-        initial_deposit_value = self.ledger[0].get('amount')
+        initial_deposit_value = 0
+
+        for transaction in self.ledger:
+            while transaction['description'] != 'deposit':
+                continue
+            initial_deposit_value = transaction.get('amount')
+
+
+
+
+
+
+
+
         initial_deposit_string = 'initial deposit'
         initial_deposit_value_as_string = f'{initial_deposit_value:.2f}'
 
@@ -149,7 +162,7 @@ def create_spend_chart(categories): #categories is a list
             
             for transaction in transactions:
                 
-                if "withdraw" in transaction.keys():
+                if (transactions[transaction] < 0 ) in transactions:
                     amount_spent = transaction.get('amount')
                     total_value_spent += amount_spent
 
@@ -254,7 +267,7 @@ def create_spend_chart(categories): #categories is a list
     
             
     result = title + levels_result + base_line + categories_named_vertically
-    print(result)
+    
 
     return result
 
@@ -298,4 +311,4 @@ print(food)
 
 clothing.withdraw(15.89, 'jacket')
 
-create_spend_chart([food, clothing])
+print(create_spend_chart([food, clothing]))
