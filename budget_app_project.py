@@ -66,13 +66,13 @@ class Category:
 
 
     
-    def __repr__(self):
+    def __str__(self):
         stars = 30 * '*'
         #Name of class between stars
         category_length = len(self.name)
         left_pad = int(((len(stars) - category_length))/ 2)
         right_pad = (len(stars) - len(self.name) - left_pad)
-        category_title = left_pad * '*' + self.name + right_pad * '*'
+        category_title = left_pad * '*' + self.name + right_pad * '*' 
         
 
         #initial deposit
@@ -85,11 +85,16 @@ class Category:
         max_char_amount = 7
         total_of_withdrawals = []
         deposit_appearance = 0
+        initial_deposit_string = '\ninitial deposit'
+        initial_deposit_value_as_string = f'{initial_deposit_value:.2f}'
 
         for dictionary in self.ledger:
 
             if dictionary.get('description') == 'deposit' and deposit_appearance == 0:
                 initial_deposit_value = dictionary.get('amount')
+                initial_deposit_value_as_string = f'{initial_deposit_value:.2f}'
+                spaces_initial_deposit = 30 - len(initial_deposit_string) - len(initial_deposit_value_as_string) + 1
+                initial_deposit_string = '\ninitial deposit' + spaces_initial_deposit * ' '
                 deposit_appearance += 1
 
 
@@ -111,8 +116,8 @@ class Category:
                 withdraws_done = withdraw_description + ' ' * number_of_spaces_withdraw + withdraw_amount
                 total_of_withdrawals.append(withdraws_done)
 
-        initial_deposit_string = 'initial deposit'
-        initial_deposit_value_as_string = f'{initial_deposit_value:.2f}'
+        
+        
         all_withdrawals = ''      
         number_of_spaces = 30 - (len(initial_deposit_string) + len(initial_deposit_value_as_string))
         initial_deposit = initial_deposit_string + ' ' * number_of_spaces +initial_deposit_value_as_string
@@ -122,7 +127,7 @@ class Category:
 
         #total
         final_balance = f'Total: {self.get_balance():.2f}'
-        final_result = category_title+ '\n' + initial_deposit + '\n' + all_withdrawals + final_balance
+        final_result = category_title + initial_deposit + '\n' + all_withdrawals + final_balance.rstrip()
 
         return final_result
 
@@ -155,7 +160,7 @@ def create_spend_chart(categories): #categories is a list
             
             for transaction in transactions:
                 
-                if (transaction < 0 ):
+                if (transaction.get('amount') < 0 ):
                     amount_spent = transaction.get('amount')
                     total_value_spent += amount_spent
 
