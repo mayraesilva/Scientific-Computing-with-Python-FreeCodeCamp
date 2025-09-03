@@ -92,9 +92,9 @@ class Category:
 
             if dictionary.get('description') == 'deposit' and deposit_appearance == 0:
                 initial_deposit_value = dictionary.get('amount')
-                initial_deposit_value_as_string = f'{initial_deposit_value:.2f}'
-                spaces_initial_deposit = 30 - len(initial_deposit_string) - len(initial_deposit_value_as_string) + 1
-                initial_deposit_string = '\ninitial deposit' + spaces_initial_deposit * ' '
+                initial_deposit_value_as_string = f'{initial_deposit_value:.2f}\n'
+                spaces_initial_deposit = 30 - len(initial_deposit_string) - len(initial_deposit_value_as_string) 
+                initial_deposit_string +=spaces_initial_deposit * ' ' + initial_deposit_value_as_string
                 deposit_appearance += 1
 
 
@@ -117,17 +117,24 @@ class Category:
                 total_of_withdrawals.append(withdraws_done)
 
         
+             
         
-        all_withdrawals = ''      
-        number_of_spaces = 30 - (len(initial_deposit_string) + len(initial_deposit_value_as_string))
-        initial_deposit = initial_deposit_string + ' ' * number_of_spaces +initial_deposit_value_as_string
+        initial_deposit = initial_deposit_string
 
+                
+        
+        all_withdrawals = '' 
         for withdraw in total_of_withdrawals:
+            print(len(withdraw))
             all_withdrawals += withdraw + '\n'
 
         #total
         final_balance = f'Total: {self.get_balance():.2f}'
-        final_result = category_title + initial_deposit + '\n' + all_withdrawals + final_balance.rstrip()
+        final_result = category_title + initial_deposit + all_withdrawals + final_balance.rstrip()
+        print(len(category_title))
+        print(len(initial_deposit))
+        
+
 
         return final_result
 
@@ -180,7 +187,7 @@ def create_spend_chart(categories): #categories is a list
         for category in dict_of_category.keys():
             amount = dict_of_category.get(category)
             category_percentage = (int((((amount / total_amount_spent) * 100)) // 10) * 10) # to get the percentage the way FCC expects
-            print(category_percentage)
+            
             category_percentage_dict = {category : category_percentage}
             total_spent_per_catagory_percentage.append(category_percentage_dict)
     
@@ -310,4 +317,3 @@ print(food)
 
 clothing.withdraw(15.89, 'jacket')
 
-print(create_spend_chart([food, clothing]))
