@@ -67,7 +67,7 @@ class Category:
 
     
     def __repr__(self):
-        stars = '******************************'
+        stars = 30 * '*'
         #Name of class between stars
         category_length = len(self.name)
         left_pad = int(((len(stars) - category_length))/ 2)
@@ -79,11 +79,6 @@ class Category:
         #print(self.ledger)
         initial_deposit_value = 0
 
-        # for transaction in self.ledger:
-        #     if transaction.get('description') != 'deposit':
-        #         continue
-        #     initial_deposit_value = transaction.get('amount')
-        #     break
 
          # withdrawals
         max_description_size = 23
