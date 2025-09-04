@@ -72,7 +72,7 @@ class Category:
         category_length = len(self.name)
         left_pad = int(((len(stars) - category_length))/ 2)
         right_pad = (len(stars) - len(self.name) - left_pad)
-        category_title = left_pad * '*' + self.name + right_pad * '*' 
+        category_title = left_pad * '*' + self.name + right_pad * '*' +'\n'
         
 
         #initial deposit
@@ -85,17 +85,20 @@ class Category:
         max_char_amount = 7
         total_of_withdrawals = []
         deposit_appearance = 0
-        initial_deposit_string = '\ninitial deposit'
+        initial_deposit_string = '\ninitial'
         initial_deposit_value_as_string = f'{initial_deposit_value:.2f}'
 
         for dictionary in self.ledger:
 
-            if dictionary.get('description') == 'deposit' and deposit_appearance == 0:
+            
+            if dictionary.get('amount') > 0 and deposit_appearance == 0:
                 initial_deposit_value = dictionary.get('amount')
-                initial_deposit_value_as_string = f'{initial_deposit_value:.2f}\n'
+                initial_deposit_string = dictionary.get('description')
+                initial_deposit_value_as_string = f'{initial_deposit_value:.2f}'
                 spaces_initial_deposit = 30 - len(initial_deposit_string) - len(initial_deposit_value_as_string) 
-                initial_deposit_string +=spaces_initial_deposit * ' ' + initial_deposit_value_as_string
+                initial_deposit_string +=spaces_initial_deposit * ' ' + initial_deposit_value_as_string + '\n'
                 deposit_appearance += 1
+
 
 
             elif 'description' in dictionary.keys() and deposit_appearance > 0:
