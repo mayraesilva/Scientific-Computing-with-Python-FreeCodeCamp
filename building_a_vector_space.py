@@ -7,7 +7,7 @@ class R2Vector(): #Two dimensions vectors
         self.y = y
 
     def norm(self):
-        return (sum(val**2 for val in self.__dict__.values()))**0.5
+        return (sum(val**2 for val in vars(self).values()))**0.5 # we changed from __dict__ to improve readability
     
     def __str__(self):
         vector = (self.x, self.y)
@@ -30,4 +30,7 @@ print(v2.norm())
 
 print(v1.__dict__)
 print(v2.__dict__)  # the __dict__ atribute is a dictionary that sotres the objects attibutes
+
+print(v1.norm())
+print(v2.norm())
 
