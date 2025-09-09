@@ -33,4 +33,5 @@ print(v2.__dict__)  # the __dict__ atribute is a dictionary that sotres the obje
 
 print(v1.norm())
 print(v2.norm())
+print('teste')
 
