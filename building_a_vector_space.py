@@ -10,7 +10,7 @@ class R2Vector(): #Two dimensions vectors
         return (sum(val**2 for val in vars(self).values()))**0.5 # we changed from __dict__ to improve readability
     
     def __str__(self):
-        return (getattr(self, i) for i in vars(self)) # getattr is a bult-in function
+        return tuple(getattr(self, i) for i in vars(self)) # getattr is a bult-in function
 
 class R3Vector(R2Vector): #Child of R2Vector
     def __init__(self,*, x, y, z):
