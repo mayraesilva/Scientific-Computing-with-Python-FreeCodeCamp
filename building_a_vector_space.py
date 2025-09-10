@@ -10,7 +10,10 @@ class R2Vector(): #Two dimensions vectors
         return (sum(val**2 for val in vars(self).values()))**0.5 # we changed from __dict__ to improve readability
     
     def __str__(self):
-        return tuple(getattr(self, i) for i in vars(self)) # getattr is a bult-in function
+        return str(tuple(getattr(self, i) for i in vars(self))) # getattr is a bult-in function
+    
+    def __repr__(self):
+        pass
 
 class R3Vector(R2Vector): #Child of R2Vector
     def __init__(self,*, x, y, z):
@@ -31,5 +34,7 @@ print(v2.__dict__)  # the __dict__ atribute is a dictionary that sotres the obje
 
 print(v1.norm())
 print(v2.norm())
-print('teste')
+
+print(f'v1 = {v1}')
+print(f'v2 = {v2}')
 
