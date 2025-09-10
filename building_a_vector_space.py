@@ -16,6 +16,9 @@ class R2Vector(): #Two dimensions vectors
         arg_list = [f'{key}={val}' for key, val in vars(self).items()]
         args = ', '.join(arg_list)
         return f'{self.__class__.__name__}({args})'
+    
+    def __getattribute__(self, attr):
+        return 'calling __getattribute__'
 
 class R3Vector(R2Vector): #Child of R2Vector
     def __init__(self,*, x, y, z):
@@ -28,15 +31,20 @@ print(v1.norm()) # to check if it is working
 print(v1)
 
 v2 = R3Vector(x=2,y=2,z=3)
-print(v2) #for us to see how it is affected when we get different dimensions
-print(v2.norm())
+# print(v2) #for us to see how it is affected when we get different dimensions
+# print(v2.norm())
 
-print(v1.__dict__)
-print(v2.__dict__)  # the __dict__ atribute is a dictionary that sotres the objects attibutes
+# print(v1.__dict__)
+# print(v2.__dict__)  # the __dict__ atribute is a dictionary that sotres the objects attibutes
 
-print(v1.norm())
-print(v2.norm())
+# print(v1.norm())
+# print(v2.norm())
 
-print(f'v1 = {v1}')
-print(f'v2 = {v2}')
+# print(f'v1 = {v1}')
+# print(f'v2 = {v2}')
 
+# # print(f'v1 = {v1}', f'\nrepr = {repr(v1)}')
+# # print(f'v2 = {v2}', f'\nrepr = {repr(v2)}')
+
+print(v1.x)
+print(getattr(v1,'x'))
