@@ -13,7 +13,9 @@ class R2Vector(): #Two dimensions vectors
         return str(tuple(getattr(self, i) for i in vars(self))) # getattr is a bult-in function
     
     def __repr__(self):
-        pass
+        arg_list = [f'{key}={val}' for key, val in vars(self).items()]
+        args = ', '.join(arg_list)
+        return f'{self.__class__.__name__}({args})'
 
 class R3Vector(R2Vector): #Child of R2Vector
     def __init__(self,*, x, y, z):
