@@ -30,7 +30,16 @@ class R2Vector(): #Two dimensions vectors
         
 
     def __mul__(self, other):
-        pass
+        if type(other) == int or type(other) == float: #when a vector is multiplied by a number
+            kwargs = {}
+            for key, val in vars(self).items():
+                kwargs[key] = other * val
+            return self.__class__(**kwargs)
+        
+        elif type(self) == type(other): # dot product
+            coordinates = [getattr(self,i) * getattr(other,i) for i in vars(self)]           
+            result = sum(coordinates)
+            return result
         
         kwargs = {i: getattr(self, i) - getattr(other, i) for i in vars(self)}
         return self.__class__(**kwargs)
