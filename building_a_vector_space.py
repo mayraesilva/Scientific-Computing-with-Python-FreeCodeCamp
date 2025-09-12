@@ -41,9 +41,29 @@ class R2Vector(): #Two dimensions vectors
             result = sum(coordinates)
             return result
         
+        return NotImplemented
+        
         kwargs = {i: getattr(self, i) - getattr(other, i) for i in vars(self)}
         return self.__class__(**kwargs)
+    
 
+    def __eq__(self, other):
+        if type(self) != type(other):
+            return NotImplemented
+        #My way of doing this comparison but could have replace all this by: return all(getattr(self, i) == getattr(other, i) for i in vars(self))
+        is_equal = []
+        for i in vars(self):
+            if getattr(self, i) == getattr(other, i):
+                is_equal.append(True)
+            else:
+                is_equal.append(False)
+        
+        return all(is_equal)
+    
+    def __ne__(self, other):
+        if type(self) != type(other):
+            return NotImplemented
+        return not all(getattr(self, i) == getattr(other, i) for i in vars(self))
 
 class R3Vector(R2Vector): #Child of R2Vector
     def __init__(self,*, x, y, z):
@@ -59,3 +79,5 @@ v3 = v1 + v2
 print(f'v1 + v2 = {v3}')
 v4 = v1 - v2
 print(f'v1 - v2 = {v4}')
+v5 = v1 * 3
+print(f'v1 * 3 = {v5}')
