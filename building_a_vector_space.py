@@ -93,7 +93,10 @@ class R3Vector(R2Vector): #Child of R2Vector
         if type(self) != type(other):
             return NotImplemented
         
-        kwargs = {}
+        kwargs =  {'x': getattr(self,y) * getattr(self,z) - getattr(self,z) * getattr(self,y),
+         'y' : getattr(self,z) * getattr(self,x) - getattr(self,x) * getattr(self,z),
+         'z' : getattr(self,x) * getattr(self,y) - getattr(self,y) * getattr(self,x)}
+        return R3Vector(**kwargs)
 
 
 v1 = R2Vector(x=2, y=3)
