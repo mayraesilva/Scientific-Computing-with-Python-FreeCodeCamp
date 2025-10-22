@@ -80,11 +80,20 @@ class R2Vector(): #Two dimensions vectors
         if type(self) != type(other):
             return NotImplemented
         return not (self > other)
+    
+    def __ge__(self, other): #greater than/ equal
+        return not self < other
 
 class R3Vector(R2Vector): #Child of R2Vector
     def __init__(self,*, x, y, z):
         super().__init__(x=x,y=y) # The super() function enables us to refer implicitly to the parent class, it is calling __ini__ from the parent class
         self.z = z
+    
+    def cross(self, other):
+        if type(self) != type(other):
+            return NotImplemented
+        
+        kwargs = {}
 
 
 v1 = R2Vector(x=2, y=3)
@@ -97,5 +106,4 @@ v4 = v1 - v2
 print(f'v1 - v2 = {v4}')
 v5 = v1 * 3
 print(f'v1 * 3 = {v5}')
-print(v1 == R2Vector(x=2, y=3))
-print(v1 != R2Vector(x=2, y=3))
+
