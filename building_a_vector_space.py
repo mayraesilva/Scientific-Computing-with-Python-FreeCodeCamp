@@ -93,9 +93,11 @@ class R3Vector(R2Vector): #Child of R2Vector
         if type(self) != type(other):
             return NotImplemented
         
-        kwargs =  {'x': getattr(self,y) * getattr(self,z) - getattr(self,z) * getattr(self,y),
-         'y' : getattr(self,z) * getattr(self,x) - getattr(self,x) * getattr(self,z),
-         'z' : getattr(self,x) * getattr(self,y) - getattr(self,y) * getattr(self,x)}
+        kwargs = {
+    'x': getattr(self, 'y') * getattr(other, 'z') - getattr(self, 'z') * getattr(other, 'y'),
+    'y': getattr(self, 'z') * getattr(other, 'x') - getattr(self, 'x') * getattr(other, 'z'),
+    'z': getattr(self, 'x') * getattr(other, 'y') - getattr(self, 'y') * getattr(other, 'x')
+}
         return R3Vector(**kwargs)
 
 
