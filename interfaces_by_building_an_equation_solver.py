@@ -13,3 +13,7 @@ class Equation():
 
 class LinearEquation(Equation):
     pass
+
+
+eq = Equation()
+lin_eq = LinearEquation()
