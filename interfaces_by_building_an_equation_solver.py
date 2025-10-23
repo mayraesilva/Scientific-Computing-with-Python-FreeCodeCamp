@@ -10,3 +10,6 @@ class Equation():
     
     def analyze(self):
         pass
+
+class LinearEquation(Equation):
+    pass
