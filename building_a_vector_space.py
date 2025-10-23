@@ -27,6 +27,8 @@ class R2Vector(): #Two dimensions vectors
     def __sub__(self, other):
         if type(self) != type(other):
             return NotImplemented
+        kwargs = {i: getattr(self, i) - getattr(other, i) for i in vars(self)}
+        return self.__class__(**kwargs)
         
 
     def __mul__(self, other):
