@@ -4,7 +4,7 @@ I keep this files as I'm studying and taking notes throughout the code, feel fre
 how I decieded to solve some problems!
 '''
 
-import abc
+from abc import ABC 
 
 
 class Equation():
