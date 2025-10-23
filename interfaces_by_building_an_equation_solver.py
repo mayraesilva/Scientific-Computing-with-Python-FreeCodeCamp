@@ -5,4 +5,8 @@ how I decieded to solve some problems!
 '''
 
 class Equation():
-    pass
+    def solve(self):
+        pass
+    
+    def analyze(self):
+        pass
