@@ -18,10 +18,13 @@ class Equation(ABC):
         # for arg in args:
         #     if not isinstance(arg, (int,float)):
         #         raise TypeError("Coefficients must be of type 'int' or 'float'")
-        
+
         #Another way to say the same is:
         if any( not isinstance(arg,(int, float)) for arg in args):
             raise TypeError("Coefficients must be of type 'int' or 'float'")
+        
+        if args[0] == 0: #Remember that the highest degree coefficient should be passed as the first argument when instantiating the object.
+            raise ValueError('Highest degree coefficient must be different from zero')
 
 
     @abstractmethod
