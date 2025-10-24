@@ -16,8 +16,14 @@ class Equation():
     @abstractmethod
     def solve(self):
         pass
+
+
     @abstractmethod
     def analyze(self):
+        pass
+
+
+    def __init_subclass__(cls):
         pass
 
 class LinearEquation(Equation):
