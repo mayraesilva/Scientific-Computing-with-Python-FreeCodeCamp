@@ -24,9 +24,11 @@ class Equation():
 
 
     def __init_subclass__(cls):
-        pass
+        if not hasattr(cls, 'degree'):
+            raise AttributeError(f"Cannot create '{cls.__name__}' class: missing required attribute 'degree'")
 
 class LinearEquation(Equation):
+    degree = 1 #This attribute represents the degree of the equation
     @abstractmethod
     def solve(self):
         pass
