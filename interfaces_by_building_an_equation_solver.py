@@ -7,10 +7,13 @@ how I decieded to solve some problems!
 from abc import ABC, abstractmethod
 
 
-class Equation():
+class Equation(ABC):
     degree: int # you can annotate a variable to clarify that it will hold a specific data type
+    
+    
     def __init__(self, *args): #depending on the equation, we may need to pass a variable number of args
-        pass
+        if (self.degree + 1) != len(args):
+            raise TypeError(f"'{self.__class__.__name__}' object takes {self.degree + 1} positional arguments but {len(args)} were given")
 
 
     @abstractmethod
@@ -37,5 +40,5 @@ class LinearEquation(Equation):
         pass
 
 
-eq = Equation()
-lin_eq = LinearEquation()
+#eq = Equation()
+lin_eq = LinearEquation(2,3)
