@@ -8,10 +8,11 @@ from abc import ABC, abstractmethod
 
 
 class Equation():
+    degree: int # you can annotate a variable to clarify that it will hold a specific data type
     def __init__(self):
         pass
 
-    
+
     @abstractmethod
     def solve(self):
         pass
