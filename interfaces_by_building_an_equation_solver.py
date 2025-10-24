@@ -4,18 +4,24 @@ I keep this files as I'm studying and taking notes throughout the code, feel fre
 how I decieded to solve some problems!
 '''
 
-from abc import ABC 
+from abc import ABC, abstractmethod
 
 
 class Equation():
+    @abstractmethod
     def solve(self):
         pass
-    
+    @abstractmethod
     def analyze(self):
         pass
 
 class LinearEquation(Equation):
-    pass
+    @abstractmethod
+    def solve(self):
+        pass
+    @abstractmethod
+    def analyze(self):
+        pass
 
 
 eq = Equation()
