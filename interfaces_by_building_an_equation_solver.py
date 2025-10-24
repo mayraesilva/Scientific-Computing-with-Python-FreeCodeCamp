@@ -8,6 +8,10 @@ from abc import ABC, abstractmethod
 
 
 class Equation():
+    def __init__(self):
+        pass
+
+    
     @abstractmethod
     def solve(self):
         pass
