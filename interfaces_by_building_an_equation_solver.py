@@ -14,6 +14,10 @@ class Equation(ABC):
     def __init__(self, *args): #depending on the equation, we may need to pass a variable number of args
         if (self.degree + 1) != len(args):
             raise TypeError(f"'{self.__class__.__name__}' object takes {self.degree + 1} positional arguments but {len(args)} were given")
+        
+        for arg in args:
+            if not isinstance(arg, (int,float)):
+                raise TypeError("Coefficients must be of type 'int' or 'float'")
 
 
     @abstractmethod
