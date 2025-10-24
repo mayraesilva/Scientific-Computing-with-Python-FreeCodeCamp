@@ -9,7 +9,7 @@ from abc import ABC, abstractmethod
 
 class Equation():
     degree: int # you can annotate a variable to clarify that it will hold a specific data type
-    def __init__(self):
+    def __init__(self, *args): #depending on the equation, we may need to pass a variable number of args
         pass
 
 
