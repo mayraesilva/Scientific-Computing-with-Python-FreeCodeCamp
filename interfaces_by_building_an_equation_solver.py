@@ -15,9 +15,13 @@ class Equation(ABC):
         if (self.degree + 1) != len(args):
             raise TypeError(f"'{self.__class__.__name__}' object takes {self.degree + 1} positional arguments but {len(args)} were given")
         
-        for arg in args:
-            if not isinstance(arg, (int,float)):
-                raise TypeError("Coefficients must be of type 'int' or 'float'")
+        # for arg in args:
+        #     if not isinstance(arg, (int,float)):
+        #         raise TypeError("Coefficients must be of type 'int' or 'float'")
+        
+        #Another way to say the same is:
+        if any( not isinstance(arg,(int, float)) for arg in args):
+            raise TypeError("Coefficients must be of type 'int' or 'float'")
 
 
     @abstractmethod
