@@ -30,6 +30,7 @@ class Equation(ABC):
         # above there is a dict comprehension to get the coefficients and its degrees associated
 
 
+
     @abstractmethod
     def solve(self):
         pass
@@ -56,3 +57,5 @@ class LinearEquation(Equation):
 
 #eq = Equation()
 lin_eq = LinearEquation(2,3)
+ation(2, 3)
+print(lin_eq)
