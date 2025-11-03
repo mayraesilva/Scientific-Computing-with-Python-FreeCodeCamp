@@ -61,7 +61,9 @@ class LinearEquation(Equation):
     degree = 1 #This attribute represents the degree of the equation
     
     def solve(self):
-        pass
+        a,b = self.coefficients.values()
+        x = - b / a
+        return x
     
     def analyze(self):
         pass
