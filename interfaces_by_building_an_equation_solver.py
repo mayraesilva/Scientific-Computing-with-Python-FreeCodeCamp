@@ -40,9 +40,9 @@ class Equation(ABC):
             if coefficient == 0:
                 continue
             if n == 0: # If n == 0, the term is made by the coefficient itself.
-                terms.append(f'{coefficient}')
+                terms.append(f'{coefficient:+}')
             elif n == 1:
-                terms.append(f'{coefficient}x')
+                terms.append(f'{coefficient:+}x')
 
         equation_string = ' '.join(terms)
         return equation_string
