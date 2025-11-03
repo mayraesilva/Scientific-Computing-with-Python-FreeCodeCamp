@@ -88,3 +88,6 @@ class QuadraticEquation(Equation):
 #eq = Equation()
 lin_eq = LinearEquation(2, 3)
 print(lin_eq)
+
+quadr_eq = QuadraticEquation(11, -1, 1)
+print(quadr_eq)
