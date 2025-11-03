@@ -36,6 +36,11 @@ class Equation(ABC):
     
     def __str__(self):
         terms = []
+        for n, coefficient in self.coefficients.items():
+            if coefficient == 0:
+                continue
+        
+
         equation_string = ' '.join(terms)
         return equation_string
 
