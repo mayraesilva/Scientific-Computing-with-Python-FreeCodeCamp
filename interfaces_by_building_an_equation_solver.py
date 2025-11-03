@@ -44,7 +44,7 @@ class Equation(ABC):
             elif n == 1:
                 terms.append(f'{coefficient:+}x')
 
-        equation_string = ' '.join(terms)
+        equation_string = ' '.join(terms).strip('+') + ' = 0'
         return equation_string
 
 
