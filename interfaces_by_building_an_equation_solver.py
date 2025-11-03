@@ -25,6 +25,9 @@ class Equation(ABC):
         
         if args[0] == 0: #Remember that the highest degree coefficient should be passed as the first argument when instantiating the object.
             raise ValueError('Highest degree coefficient must be different from zero')
+        
+        self.coefficients = {self.degree - index : coefficient for index, coefficient in enumerate(args)}
+        # above there is a dict comprehension to get the coefficients and its degrees associated
 
 
     @abstractmethod
