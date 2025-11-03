@@ -43,6 +43,8 @@ class Equation(ABC):
                 terms.append(f'{coefficient:+}')
             elif n == 1:
                 terms.append(f'{coefficient:+}x')
+            else: # for bigger expoents
+                terms.append(f'{coefficient:+}x**{n}')
 
         equation_string = ' '.join(terms).strip('+') + ' = 0'
         return equation_string
