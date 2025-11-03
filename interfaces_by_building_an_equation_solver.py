@@ -39,7 +39,8 @@ class Equation(ABC):
         for n, coefficient in self.coefficients.items():
             if coefficient == 0:
                 continue
-        
+            if n == 0: # If n == 0, the term is made by the coefficient itself.
+                terms.append(f'{coefficient}')
 
         equation_string = ' '.join(terms)
         return equation_string
