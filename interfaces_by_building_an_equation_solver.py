@@ -41,6 +41,8 @@ class Equation(ABC):
                 continue
             if n == 0: # If n == 0, the term is made by the coefficient itself.
                 terms.append(f'{coefficient}')
+            elif n == 1:
+                terms.append(f'{coefficient}x')
 
         equation_string = ' '.join(terms)
         return equation_string
