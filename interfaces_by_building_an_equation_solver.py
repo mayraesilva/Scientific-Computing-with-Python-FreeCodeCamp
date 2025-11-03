@@ -71,4 +71,4 @@ class LinearEquation(Equation):
 
 #eq = Equation()
 lin_eq = LinearEquation(2, 3)
-print(lin_eq.solve())
+print(lin_eq)
