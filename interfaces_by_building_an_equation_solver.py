@@ -48,7 +48,7 @@ class Equation(ABC):
                 terms.append(f'{coefficient:+}x**{n}')
 
         equation_string = ' '.join(terms).strip('+') + ' = 0'
-        return re.sub('1', '', equation_string.strip('+'))   
+        return re.sub('(?<!\d)1', '', equation_string.strip('+'))    
 
 
     @abstractmethod
