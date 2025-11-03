@@ -30,6 +30,15 @@ class Equation(ABC):
         # above there is a dict comprehension to get the coefficients and its degrees associated
 
 
+    def __init_subclass__(cls):
+        if not hasattr(cls, 'degree'):
+            raise AttributeError(f"Cannot create '{cls.__name__}' class: missing required attribute 'degree'")
+    
+    def __str__(self):
+        terms = []
+        equation_string = ' '.join(terms)
+        return equation_string
+
 
     @abstractmethod
     def solve(self):
@@ -40,22 +49,16 @@ class Equation(ABC):
     def analyze(self):
         pass
 
-
-    def __init_subclass__(cls):
-        if not hasattr(cls, 'degree'):
-            raise AttributeError(f"Cannot create '{cls.__name__}' class: missing required attribute 'degree'")
-
 class LinearEquation(Equation):
     degree = 1 #This attribute represents the degree of the equation
-    @abstractmethod
+    
     def solve(self):
         pass
-    @abstractmethod
+    
     def analyze(self):
         pass
 
 
 #eq = Equation()
-lin_eq = LinearEquation(2,3)
-ation(2, 3)
+lin_eq = LinearEquation(2, 3)
 print(lin_eq)
