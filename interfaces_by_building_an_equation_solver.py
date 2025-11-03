@@ -5,6 +5,7 @@ how I decieded to solve some problems!
 '''
 
 from abc import ABC, abstractmethod
+import re 
 
 
 class Equation(ABC):
