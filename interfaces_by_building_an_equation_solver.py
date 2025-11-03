@@ -73,6 +73,11 @@ class LinearEquation(Equation):
 
 class QuadraticEquation(Equation):
     degree = 2
+
+    def __init__(self, *args):
+        super().__init__(*args) # to inherit the attributes from the mother class
+        a, b, c = self.coefficients.values()
+        self.delta = b**2 - 4 * a * c
     
     def solve(self):
         pass
